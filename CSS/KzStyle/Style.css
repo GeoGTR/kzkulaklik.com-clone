@@ -13072,7 +13072,7 @@ a.icon:not(.button) {
   font-size: 1.2em;
 }
 .nav > li > a > i.icon-menu {
-  font-size: 1.9em;
+  font-size: 1.5em;
 }
 .nav > li.has-icon > a > i {
   min-width: 1em;
@@ -19085,7 +19085,7 @@ html {
   content: "\e901";
 }
 .icon-shopping-cart:before {
-  content: "\e908";
+  content: url(./svgs/shopping-basket-solid.svg);
 }
 .icon-tumblr:before {
   content: "\e603";
@@ -19100,13 +19100,13 @@ html {
   content: "\e605";
 }
 .icon-menu:before {
-  content: "\e800";
+  content: url(./svgs/bars-solid.svg);
 }
 .icon-equalizer:before {
   content: "\e992";
 }
 .icon-shopping-basket:before {
-  content: "\e909";
+  content: url(./svgs/shopping-basket-solid.svg);
 }
 .icon-shopping-bag:before {
   content: "\e90a";
@@ -19139,7 +19139,10 @@ html {
   content: "\f107";
 }
 .icon-twitter:before {
-  content: "\e001";
+  content: url(./svgs/twitter-brands.svg);
+}
+.icon-twitter-tight:before {
+  content: url(./svgs/twitter-brands-tight.svg);
 }
 .icon-envelop:before {
   content: "\e003";
@@ -19154,7 +19157,10 @@ html {
   content: "\e006";
 }
 .icon-facebook:before {
-  content: "\e002";
+  content: url(./svgs/facebook-f-brands.svg);
+}
+.icon-facebook-tight:before {
+  content: url(./svgs/facebook-f-brands-tight.svg);
 }
 .icon-feed:before {
   content: "\e008";
@@ -19166,7 +19172,10 @@ html {
   content: "\e00c";
 }
 .icon-instagram:before {
-  content: "\e00e";
+  content: url(./svgs/instagram-brands.svg);
+}
+.icon-instagram-tight:before {
+  content: url(./svgs/instagram-brands-tight.svg);
 }
 .icon-tiktok:before {
   content: "\e90b";
@@ -19175,7 +19184,7 @@ html {
   content: "\e010";
 }
 .icon-search:before {
-  content: "\e012";
+  content: url(./svgs/search-solid.svg);
 }
 .icon-skype:before {
   content: "\e011";

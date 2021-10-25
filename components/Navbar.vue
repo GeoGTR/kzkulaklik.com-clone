@@ -43,7 +43,7 @@
                 class="header-search header-search-dropdown has-icon has-dropdown menu-item-has-children"
               >
                 <a href="#" aria-label="Ara" class="is-small">
-                  <i class="fas fa-search"></i>
+                  <i class="icon-search"></i>
                 </a>
                 <ul class="nav-dropdown nav-dropdown-default">
                   <li class="header-search-form search-form html relative has-icon">
@@ -78,7 +78,7 @@
                                 class="ux-search-submit submit-button secondary button icon mb-0"
                                 aria-label="Submit"
                               >
-                                <i class="fas fa-search"></i>
+                                <i class="icon-search"></i>
                               </button>
                             </div>
                           </div>
@@ -99,7 +99,7 @@
                 class="header-search header-search-dropdown has-icon has-dropdown menu-item-has-children"
               >
                 <a href="#" aria-label="Ara" class="is-small">
-                  <i class="fas fa-search"></i>
+                  <i class="icon-search"></i>
                 </a>
                 <ul class="nav-dropdown nav-dropdown-default" style>
                   <li class="header-search-form search-form html relative has-icon">
@@ -134,7 +134,7 @@
                                 class="ux-search-submit submit-button secondary button icon mb-0"
                                 aria-label="Submit"
                               >
-                                <i class="fas fa-search"></i>
+                                <i class="icon-search"></i>
                               </button>
                             </div>
                           </div>
@@ -194,7 +194,7 @@
                     rel="noopener noreferrer nofollow"
                     class="icon plain facebook tooltip tooltipstered"
                   >
-                    <i class="icon-facebook"></i>
+                    <i  class="icon-facebook" style="font-size: 0.6rem"></i>
                   </a>
                   <a
                     href="https://www.instagram.com/kzkulaklik/"
@@ -289,7 +289,7 @@
                     rel="noopener noreferrer nofollow"
                     class="icon plain facebook tooltip tooltipstered"
                   >
-                    <i class="icon-facebook"></i>
+                    <i class="icon-facebook-tight" style="font-size: 0.6rem"></i>
                   </a>
                   <a
                     href="https://www.instagram.com/kzkulaklik/"
@@ -298,7 +298,7 @@
                     data-label="Instagram"
                     class="icon plain instagram tooltip tooltipstered"
                   >
-                    <i class="icon-instagram"></i>
+                    <i class="icon-instagram-tight"></i>
                   </a>
                   <a
                     href="https://twitter.com/kzkulaklik"
@@ -307,7 +307,7 @@
                     rel="noopener noreferrer nofollow"
                     class="icon plain twitter tooltip tooltipstered"
                   >
-                    <i class="icon-twitter"></i>
+                    <i class="icon-twitter-tight"></i>
                   </a>
                 </div>
               </li>
