@@ -52,6 +52,7 @@
         </div>
       </main>
       <!-- footer'ın gelecegi yer -->
+      <Footer />
     </div>
   </body>
 </div>
