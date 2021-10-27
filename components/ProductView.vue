@@ -592,12 +592,17 @@
                         </ul>
                         <div class="tab-panels">
                             <!-- tab-description -->
+                            <DescriptionTab />
                             <!-- tab-odeme-ve-teslimat -->
+                            <PaymentAndDelivery />
                             <!-- tab-garanti-ve-iade -->
+                            <WarrantyAndReturn />
                             <!-- tab-incelemeler-->
+                            <Reviews />
                         </div>
                     </div>
                     <!-- ilgili urunlerin gelecegi yer-->
+                    <RelatedProducts />
                 </div>
             </div>
         </div>

@@ -101,7 +101,7 @@
                 <a href="#" aria-label="Ara" class="is-small">
                   <i class="icon-search"></i>
                 </a>
-                <ul class="nav-dropdown nav-dropdown-default" style>
+                <ul class="nav-dropdown nav-dropdown-default">
                   <li class="header-search-form search-form html relative has-icon">
                     <div class="header-search-form-wrapper">
                       <div class="searchform-wrapper ux-search-box relative is-normal">

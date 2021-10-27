@@ -11,6 +11,7 @@
             <div class="flickity-viewport" style="height: 456.766px; touch-action: pan-y;">
                 <div class="flickity-slider" style="left: 0px; transform: translateX(-199.99%);">
                     <!-- ProductPreview lerin gelecegi yer -->
+                    <ProductPreview />
                 </div>
             </div>
             <button
