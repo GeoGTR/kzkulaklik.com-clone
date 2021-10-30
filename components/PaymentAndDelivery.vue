@@ -17,7 +17,7 @@
             <img
                 loading="lazy"
                 class="lazy-load alignnone size-full wp-image-1512"
-                src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20199%2050%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E"
+                src="https://www.kzkulaklik.com/wp-content/uploads/2019/09/yurtici-kargo-logo.jpg"
                 data-src="https://www.kzkulaklik.com/wp-content/uploads/2019/09/yurtici-kargo-logo.jpg"
                 width="199"
                 height="50"
@@ -35,7 +35,7 @@
             <img
                 loading="lazy"
                 class="lazy-load alignnone size-full wp-image-19774"
-                src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20450%20162%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E"
+                src="https://www.kzkulaklik.com/wp-content/uploads/2021/01/paytr_.jpg"
                 data-src="https://www.kzkulaklik.com/wp-content/uploads/2021/01/paytr_.jpg"
                 alt="Kredi Kartları Taksitli Güvenli Ödeme"
                 width="450"

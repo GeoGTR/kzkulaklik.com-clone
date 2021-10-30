@@ -1,6 +1,6 @@
 <template>
     <div
-        class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content active"
+        class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content"
         id="tab-description"
         role="tabpanel"
         aria-labelledby="tab-title-description"

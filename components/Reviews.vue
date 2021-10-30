@@ -12,6 +12,9 @@
                 </h3>
                 <ol class="commentlist">
                     <!-- Review componentlerin gelecegi yer-->
+                    <Review/>
+                    <Review/>
+                    <Review/>
                 </ol>
             </div>
             <div id="review_form_wrapper" class="large-5 col">

@@ -592,13 +592,13 @@
                         </ul>
                         <div class="tab-panels">
                             <!-- tab-description -->
-                            <DescriptionTab />
+                            <DescriptionTab class="active"/>
                             <!-- tab-odeme-ve-teslimat -->
-                            <PaymentAndDelivery />
+                            <PaymentAndDelivery class="active" />
                             <!-- tab-garanti-ve-iade -->
-                            <WarrantyAndReturn />
+                            <WarrantyAndReturn class="active" />
                             <!-- tab-incelemeler-->
-                            <Reviews />
+                            <Reviews class="active" />
                         </div>
                     </div>
                     <!-- ilgili urunlerin gelecegi yer-->
