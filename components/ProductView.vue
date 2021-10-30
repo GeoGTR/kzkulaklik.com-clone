@@ -594,11 +594,11 @@
                             <!-- tab-description -->
                             <DescriptionTab class="active"/>
                             <!-- tab-odeme-ve-teslimat -->
-                            <PaymentAndDelivery class="active" />
+                            <PaymentAndDelivery  />
                             <!-- tab-garanti-ve-iade -->
-                            <WarrantyAndReturn class="active" />
+                            <WarrantyAndReturn  />
                             <!-- tab-incelemeler-->
-                            <Reviews class="active" />
+                            <Reviews  />
                         </div>
                     </div>
                     <!-- ilgili urunlerin gelecegi yer-->
