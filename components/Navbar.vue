@@ -4,7 +4,7 @@
       <div id="masthead" class="header-main hide-for-sticky nav-dark">
         <div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
           <div id="logo" class="flex-col logo">
-            <a href="https://www.kzkulaklik.com/" title="KZ Kulaklık" rel="home">
+            <a href="./" title="KZ Kulaklık" rel="home">
               <img
                 width="110"
                 height="68"
@@ -95,62 +95,22 @@
             <ul
               class="header-nav header-nav-main nav nav-left nav-line-bottom nav-size-large nav-spacing-xlarge"
             >
+                <!--current-dropdown eklendiğinde arama barı gözükecek-->
               <li
-                class="header-search header-search-dropdown has-icon has-dropdown menu-item-has-children"
+                class="header-search header-search-dropdown has-icon has-dropdown menu-item-has-children"                 
               >
+              
                 <a href="#" aria-label="Ara" class="is-small">
                   <i class="icon-search"></i>
                 </a>
-                <ul class="nav-dropdown nav-dropdown-default">
-                  <li class="header-search-form search-form html relative has-icon">
-                    <div class="header-search-form-wrapper">
-                      <div class="searchform-wrapper ux-search-box relative is-normal">
-                        <form
-                          role="search"
-                          method="get"
-                          class="searchform"
-                          action="https://www.kzkulaklik.com/"
-                        >
-                          <div class="flex-row relative">
-                            <div class="flex-col flex-grow">
-                              <label
-                                class="screen-reader-text"
-                                for="woocommerce-product-search-field-1"
-                              >Ara:</label>
-                              <input
-                                type="search"
-                                id="woocommerce-product-search-field-1"
-                                class="search-field mb-0"
-                                placeholder="Ara…"
-                                value
-                                name="s"
-                              />
-                              <input type="hidden" name="post_type" value="product" />
-                            </div>
-                            <div class="flex-col">
-                              <button
-                                type="submit"
-                                value="Ara"
-                                class="ux-search-submit submit-button secondary button icon mb-0"
-                                aria-label="Submit"
-                              >
-                                <i class="icon-search"></i>
-                              </button>
-                            </div>
-                          </div>
-                          <div class="live-search-results text-left z-top"></div>
-                        </form>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+                <Search />
               </li>
               <li
                 id="menu-item-43"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-19 current_page_item menu-item-43 active menu-item-design-default"
               >
                 <a
-                  href="https://www.kzkulaklik.com/"
+                  href="./"
                   aria-current="page"
                   class="nav-top-link"
                 >Ana Sayfa</a>
@@ -160,7 +120,7 @@
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-638 menu-item-design-default"
               >
                 <a
-                  href="https://www.kzkulaklik.com/urun-kategori/kz-kulaklik/"
+                  href="./kulakliklar"
                   class="nav-top-link"
                 >KZ Kulaklık</a>
               </li>
@@ -177,7 +137,7 @@
                 id="menu-item-18902"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18902 menu-item-design-default"
               >
-                <a href="https://www.kzkulaklik.com/iletisim/" class="nav-top-link">Bize Ulaşın</a>
+                <a href="./contact" class="nav-top-link">Bize Ulaşın</a>
               </li>
             </ul>
           </div>
@@ -218,7 +178,7 @@
               </li>
               <li class="account-item has-icon">
                 <a
-                  href="https://www.kzkulaklik.com/hesabim/"
+                  href="./loginPage"
                   class="nav-top-link nav-top-not-logged-in"
                 >
                   <span>Giriş Yap</span>
@@ -227,7 +187,7 @@
               <li class="header-divider"></li>
               <li class="cart-item has-icon has-dropdown">
                 <a
-                  href="https://www.kzkulaklik.com/sepet/"
+                  href="./cart"
                   title="Sepet"
                   class="header-cart-link is-small"
                 >

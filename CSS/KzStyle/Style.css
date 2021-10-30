@@ -19186,6 +19186,11 @@ html {
 .icon-search:before {
   content: url(./svgs/search-solid.svg);
 }
+.icon-search {
+  content: url(./svgs/search-solid.svg);
+}
+
+
 .icon-skype:before {
   content: "\e011";
 }

@@ -7,7 +7,7 @@
             <div class="product-small box">
                 <div class="box-image">
                     <div class="image-fade_in_back">
-                        <a href="https://www.kzkulaklik.com/urun/kz-zsn-1ba1dd-hibrit-kulaklik/">
+                        <a href="./product">
                             <img
                                 width="247"
                                 height="247"

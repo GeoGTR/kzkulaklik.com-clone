@@ -590,6 +590,7 @@
                                 <a href="#tab-reviews">İnceleme (75)</a>
                             </li>
                         </ul>
+                        <!-- active classına sahip tab gözükecek-->
                         <div class="tab-panels">
                             <!-- tab-description -->
                             <DescriptionTab class="active"/>
