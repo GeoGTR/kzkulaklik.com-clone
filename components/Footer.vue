@@ -25,7 +25,7 @@
                   menu-item-object-page menu-item-19860
                 "
               >
-                <a href="https://www.kzkulaklik.com/odeme-ve-teslimat/"
+                <a href="./paymentAndDeliveryPage"
                   >Ödeme ve Teslimat</a
                 >
               </li>
@@ -37,7 +37,7 @@
                   menu-item-object-page menu-item-19861
                 "
               >
-                <a href="https://www.kzkulaklik.com/garanti-ve-iade-sartlari/"
+                <a href="./warrantyAndReturnPage"
                   >Garanti ve İade Şartları</a
                 >
               </li>
@@ -49,7 +49,7 @@
                   menu-item-object-page menu-item-19862
                 "
               >
-                <a href="https://www.kzkulaklik.com/mesafeli-satis-sozlesmesi/"
+                <a href="./distanceSalesAgreementPage"
                   >Mesafeli Satış Sözleşmesi</a
                 >
               </li>
@@ -61,7 +61,7 @@
                   menu-item-object-page menu-item-privacy-policy menu-item-19863
                 "
               >
-                <a href="https://www.kzkulaklik.com/gizlilik-politikasi/"
+                <a href="./privacyAndSecurityPage"
                   >Gizlilik politikası</a
                 >
               </li>
@@ -73,7 +73,7 @@
                   menu-item-object-page menu-item-19874
                 "
               >
-                <a href="https://www.kzkulaklik.com/iletisim/">Bize Ulaşın</a>
+                <a href="./contact">Bize Ulaşın</a>
               </li>
             </ul>
           </div>

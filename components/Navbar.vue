@@ -129,7 +129,7 @@
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-755 menu-item-design-default"
               >
                 <a
-                  href="https://www.kzkulaklik.com/urun-kategori/yedek-kulaklik-kablosu-yukseltme-kablolari"
+                  href="./kablolar"
                   class="nav-top-link"
                 >Kablolar</a>
               </li>
@@ -185,9 +185,9 @@
                 </a>
               </li>
               <li class="header-divider"></li>
-              <!-- current-dropdown eklendiğinde sepet preview geliyor
+              <!-- class="current-dropdown" eklendiğinde sepet preview geliyor
               ilk li elementi nin içindeki ilk ul elementi görünür hale geliyor -->
-              <CartPreview class="current-dropdown"/>
+              <CartPreview />
             </ul>
           </div>
           <div class="flex-col show-for-medium flex-right">
