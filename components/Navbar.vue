@@ -154,7 +154,7 @@
                     rel="noopener noreferrer nofollow"
                     class="icon plain facebook tooltip tooltipstered"
                   >
-                    <i  class="icon-facebook" style="font-size: 0.6rem"></i>
+                    <i  class="icon-facebook"></i>
                   </a>
                   <a
                     href="https://www.instagram.com/kzkulaklik/"
@@ -236,7 +236,7 @@
                     rel="noopener noreferrer nofollow"
                     class="icon plain facebook tooltip tooltipstered"
                   >
-                    <i class="icon-facebook-tight" style="font-size: 0.6rem"></i>
+                    <i class="icon-facebook"></i>
                   </a>
                   <a
                     href="https://www.instagram.com/kzkulaklik/"
@@ -245,7 +245,7 @@
                     data-label="Instagram"
                     class="icon plain instagram tooltip tooltipstered"
                   >
-                    <i class="icon-instagram-tight"></i>
+                    <i class="icon-instagram"></i>
                   </a>
                   <a
                     href="https://twitter.com/kzkulaklik"

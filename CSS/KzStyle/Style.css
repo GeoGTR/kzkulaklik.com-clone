@@ -9505,7 +9505,7 @@ table.wc-block-cart-items .wc-block-cart-items__row.is-disabled {
   src: url("/wp-content/themes/flatsome/assets/css/icons/fl-icons.eot");
   src: url("/wp-content/themes/flatsome/assets/css/icons/fl-icons.eot#iefix")
       format("embedded-opentype"),
-    url("/wp-content/themes/flatsome/assets/css/icons/fl-icons.woff2")
+    url("/CSS/KzStyle/fl-icons.woff2")
       format("woff2"),
     url("/wp-content/themes/flatsome/assets/css/icons/fl-icons.ttf")
       format("truetype"),
@@ -19085,7 +19085,7 @@ html {
   content: "\e901";
 }
 .icon-shopping-cart:before {
-  content: url(./svgs/shopping-basket-solid.svg);
+  content: "\e908";
 }
 .icon-tumblr:before {
   content: "\e603";
@@ -19100,13 +19100,13 @@ html {
   content: "\e605";
 }
 .icon-menu:before {
-  content: url(./svgs/bars-solid.svg);
+  content: "\e800";
 }
 .icon-equalizer:before {
   content: "\e992";
 }
 .icon-shopping-basket:before {
-  content: url(./svgs/shopping-basket-solid.svg);
+  content: "\e909";
 }
 .icon-shopping-bag:before {
   content: "\e90a";
@@ -19139,10 +19139,10 @@ html {
   content: "\f107";
 }
 .icon-twitter:before {
-  content: url(./svgs/twitter-brands.svg);
+  content: "\e001";
 }
 .icon-twitter-tight:before {
-  content: url(./svgs/twitter-brands-tight.svg);
+  content: "\e001";
 }
 .icon-envelop:before {
   content: "\e003";
@@ -19157,10 +19157,7 @@ html {
   content: "\e006";
 }
 .icon-facebook:before {
-  content: url(./svgs/facebook-f-brands.svg);
-}
-.icon-facebook-tight:before {
-  content: url(./svgs/facebook-f-brands-tight.svg);
+  content: "\e002";
 }
 .icon-feed:before {
   content: "\e008";
@@ -19172,10 +19169,7 @@ html {
   content: "\e00c";
 }
 .icon-instagram:before {
-  content: url(./svgs/instagram-brands.svg);
-}
-.icon-instagram-tight:before {
-  content: url(./svgs/instagram-brands-tight.svg);
+  content: "\e00E";
 }
 .icon-tiktok:before {
   content: "\e90b";
@@ -19184,13 +19178,8 @@ html {
   content: "\e010";
 }
 .icon-search:before {
-  content: url(./svgs/search-solid.svg);
+  content: "\e012";
 }
-.icon-search {
-  content: url(./svgs/search-solid.svg);
-}
-
-
 .icon-skype:before {
   content: "\e011";
 }
@@ -19364,7 +19353,7 @@ html {
 }
 .star-rating:before,
 .woocommerce-page .star-rating:before {
-  content: "\e006\e006\e006\e006\e006";
+  content: "\e006\e006\e006\e006\e006";;
   color: #d26e4b;
   float: left;
   top: 0;
