@@ -17,7 +17,7 @@ export default {
       <div id="masthead" class="header-main hide-for-sticky nav-dark">
         <div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
           <div id="logo" class="flex-col logo">
-            <a href="./" title="KZ Kulaklık" rel="home">
+            <router-link to="/" title="KZ Kulaklık" rel="home">
               <img
                 width="110"
                 height="68"
@@ -32,7 +32,23 @@ export default {
                 class="header-logo-dark"
                 alt="KZ Kulaklık"
               />
-            </a>
+            </router-link>
+            <!--<a href="/" title="KZ Kulaklık" rel="home">
+              <img
+                width="110"
+                height="68"
+                src="https://www.kzkulaklik.com/wp-content/uploads/2021/08/KZ-logo-kzkulaklik.com_.png"
+                class="header_logo header-logo"
+                alt="KZ Kulaklık"
+              />
+              <img
+                width="110"
+                height="68"
+                src="https://www.kzkulaklik.com/wp-content/uploads/2021/08/KZ-logo-kzkulaklik.com_.png"
+                class="header-logo-dark"
+                alt="KZ Kulaklık"
+              />
+            </a>-->
           </div>
           <div class="flex-col show-for-medium flex-left">
             <ul class="mobile-nav nav nav-left">
@@ -121,35 +137,29 @@ export default {
                 id="menu-item-43"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-19 current_page_item menu-item-43 active menu-item-design-default"
               >
-                <a
-                  href="./"
-                  aria-current="page"
-                  class="nav-top-link"
-                >Ana Sayfa</a>
+                <router-link to="/" class="nav-top-link">Ana Sayfa</router-link>
+                <!--<a href="./" aria-current="page" class="nav-top-link">Ana Sayfa</a>-->
               </li>
               <li
                 id="menu-item-638"
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-638 menu-item-design-default"
               >
-                <a
-                  href="./kulakliklar"
-                  class="nav-top-link"
-                >KZ Kulaklık</a>
+                <router-link to="/kulakliklar" class="nav-top-link">KZ Kulaklık</router-link>
+                <!--<a href="./kulakliklar" class="nav-top-link">KZ Kulaklık</a>-->
               </li>
               <li
                 id="menu-item-755"
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-755 menu-item-design-default"
               >
-                <a
-                  href="./kablolar"
-                  class="nav-top-link"
-                >Kablolar</a>
+                <router-link to="/kablolar" class="nav-top-link">Kablolar</router-link>
+                <!--<a href="./kablolar" class="nav-top-link">Kablolar</a>-->
               </li>
               <li
                 id="menu-item-18902"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18902 menu-item-design-default"
               >
-                <a href="./contact" class="nav-top-link">Bize Ulaşın</a>
+                <router-link to="/contact" class="nav-top-link">Bize Ulaşın</router-link>
+                <!--<a href="./contact" class="nav-top-link">Bize Ulaşın</a>-->
               </li>
             </ul>
           </div>
@@ -189,12 +199,10 @@ export default {
                 </div>
               </li>
               <li class="account-item has-icon">
-                <a
-                  href="./loginPage"
-                  class="nav-top-link nav-top-not-logged-in"
-                >
+                <router-link to="/login" class="nav-top-link">
                   <span>Giriş Yap</span>
-                </a>
+                </router-link>
+                <!--<a href="./loginPage" class="nav-top-link nav-top-not-logged-in">-->
               </li>
               <li class="header-divider"></li>
               <!-- class="current-dropdown" eklendiğinde sepet preview geliyor
