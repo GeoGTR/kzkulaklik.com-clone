@@ -1,6 +1,9 @@
 <script>
 export default {
-  name: 'FilterTop'
+  name: 'FilterTop',
+  props: {
+    currentPage: String
+  }
 }
 </script>
 
@@ -10,8 +13,9 @@ export default {
             <div class="flex-col flex-grow medium-text-center">
                 <div class="is-medium">
                     <nav class="woocommerce-breadcrumb breadcrumbs uppercase">
-                        <a href="https://www.kzkulaklik.com">Ana Sayfa</a>
-                        <span class="divider">/</span> KZ Kulaklık
+                        <!--<a href="https://www.kzkulaklik.com">Ana Sayfa</a>-->
+                        <router-link to="/">Ana Sayfa</router-link>
+                        <span class="divider">/</span> {{currentPage}}
                     </nav>
                 </div>
             </div>

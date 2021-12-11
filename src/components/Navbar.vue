@@ -4,6 +4,7 @@ import CartPreview from './CartPreview.vue'
 
 export default {
   name: 'Navbar',
+  activePage: 'home',
   components: {
     Search,
     CartPreview
@@ -17,7 +18,7 @@ export default {
       <div id="masthead" class="header-main hide-for-sticky nav-dark">
         <div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
           <div id="logo" class="flex-col logo">
-            <router-link to="/" title="KZ Kulaklık" rel="home">
+            <router-link to="/" title="KZ Kulaklık" rel="home" @click="$store.dispatch('selectPage', 'home')">
               <img
                 width="110"
                 height="68"
@@ -135,30 +136,34 @@ export default {
               </li>
               <li
                 id="menu-item-43"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-19 current_page_item menu-item-43 active menu-item-design-default"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-19 current_page_item menu-item-43 menu-item-design-default"
+                :class="[$store.state.selectedPage == 'home' ? 'active' : '']"
               >
-                <router-link to="/" class="nav-top-link">Ana Sayfa</router-link>
+                <router-link to="/" class="nav-top-link" @click="$store.dispatch('selectPage','home')">Ana Sayfa</router-link>
                 <!--<a href="./" aria-current="page" class="nav-top-link">Ana Sayfa</a>-->
               </li>
               <li
                 id="menu-item-638"
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-638 menu-item-design-default"
+                :class="[$store.state.selectedPage == 'kulaklik' ? 'active' : '']"
               >
-                <router-link to="/kulakliklar" class="nav-top-link">KZ Kulaklık</router-link>
+                <router-link to="/kulakliklar" class="nav-top-link" @click="$store.dispatch('selectPage','kulaklik')">KZ Kulaklık</router-link>
                 <!--<a href="./kulakliklar" class="nav-top-link">KZ Kulaklık</a>-->
               </li>
               <li
                 id="menu-item-755"
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-755 menu-item-design-default"
+                :class="[$store.state.selectedPage == 'kablolar' ? 'active' : '']"
               >
-                <router-link to="/kablolar" class="nav-top-link">Kablolar</router-link>
+                <router-link to="/kablolar" class="nav-top-link" @click="$store.dispatch('selectPage','kablolar')">Kablolar</router-link>
                 <!--<a href="./kablolar" class="nav-top-link">Kablolar</a>-->
               </li>
               <li
                 id="menu-item-18902"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18902 menu-item-design-default"
+                :class="[$store.state.selectedPage == 'contact' ? 'active' : '']"
               >
-                <router-link to="/contact" class="nav-top-link">Bize Ulaşın</router-link>
+                <router-link to="/contact" class="nav-top-link" @click="$store.dispatch('selectPage','contact')">Bize Ulaşın</router-link>
                 <!--<a href="./contact" class="nav-top-link">Bize Ulaşın</a>-->
               </li>
             </ul>
@@ -198,8 +203,8 @@ export default {
                   </a>
                 </div>
               </li>
-              <li class="account-item has-icon">
-                <router-link to="/login" class="nav-top-link">
+              <li class="account-item has-icon" :class="[$store.state.selectedPage == 'login' ? 'active' : '']">
+                <router-link to="/login" class="nav-top-link" @click="$store.dispatch('selectPage','login')">
                   <span>Giriş Yap</span>
                 </router-link>
                 <!--<a href="./loginPage" class="nav-top-link nav-top-not-logged-in">-->
@@ -213,7 +218,7 @@ export default {
           <div class="flex-col show-for-medium flex-right">
             <ul class="mobile-nav nav nav-right">
               <li class="cart-item has-icon">
-                <a
+                <!--<a
                   href="https://www.kzkulaklik.com/sepet/"
                   class="header-cart-link off-canvas-toggle nav-top-link is-small"
                   data-open="#cart-popup"
@@ -222,7 +227,15 @@ export default {
                   data-pos="right"
                 >
                   <i class="icon-shopping-basket" data-icon-label="0"></i>
-                </a>
+                </a>-->
+                <router-link to="/cart" @click="$store.dispatch('selectPage', '')"
+                  class="header-cart-link off-canvas-toggle nav-top-link is-small"
+                  data-open="#cart-popup"
+                  data-class="off-canvas-cart"
+                  title="Sepet"
+                  data-pos="right">
+                   <i class="icon-shopping-basket" data-icon-label="0"></i>
+                   </router-link>
                 <div id="cart-popup" class="mfp-hide widget_shopping_cart">
                   <div class="cart-popup-inner inner-padding">
                     <div class="cart-popup-title text-center">

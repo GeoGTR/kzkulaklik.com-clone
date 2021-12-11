@@ -18,7 +18,7 @@ export default {
   >
     <div id="wrapper">
       <!-- navbarın gelecegi yer -->
-      <FilterTop />
+      <FilterTop currentPage="KZ Kulaklık"/>
       <main id="main">
         <div id="content" class="content-area page-wrapper" role="main">
           <div class="row row-main">
@@ -30,10 +30,6 @@ export default {
                     class="row large-columns-3 medium-columns- small-columns-2 row-normal has-shadow row-box-shadow-1 row-box-shadow-1-hover"
                   >
                     <!-- ProductPreviewlerin geleceği yerler -->
-                    <ProductPreview />
-                    <ProductPreview />
-                    <ProductPreview />
-                    <ProductPreview />
                     <ProductPreview />
                   </div>
                   <hr />

@@ -13,7 +13,7 @@ export default {
     <!-- current-dropdown eklendiğinde sepet preview geliyor
     ilk li elementi nin içindeki ilk ul elementi görünür hale geliyor-->
     <li class="cart-item has-icon has-dropdown ">
-        <router-link to="/cart" title="Sepet" class="header-cart-link is-small">
+        <router-link to="/cart" title="Sepet" class="header-cart-link is-small" @click="$store.dispatch('selectPage', '')">
             <i class="icon-shopping-basket" data-icon-label="0"></i>
         </router-link>
         <!--<a href="./cart" title="Sepet" class="header-cart-link is-small">

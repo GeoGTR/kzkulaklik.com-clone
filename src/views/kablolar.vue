@@ -13,13 +13,12 @@ export default {
 
 <template>
 <div>
-    <link rel="stylesheet" href="./CSS/KzStyle/Style.css" />
     <body
         class="archive tax-product_cat term-yedek-kulaklik-kablosu-yukseltme-kablolari term-20 theme-flatsome woocommerce woocommerce-page woocommerce-js lightbox nav-dropdown-has-arrow nav-dropdown-has-shadow nav-dropdown-has-border"
     >
         <div id="wrapper">
             <!-- navbarın gelecegi yer -->
-            <FilterTop />
+            <FilterTop currentPage="Kablolar"/>
             <main id="main">
                 <div id="content" class="content-area page-wrapper" role="main">
                     <div class="row row-main">
@@ -34,10 +33,6 @@ export default {
                                         class="row large-columns-3 medium-columns- small-columns-2 row-normal has-shadow row-box-shadow-1 row-box-shadow-1-hover"
                                     >
                                         <!-- ProductPreviewlerin geleceği yerler -->
-                                        <ProductPreview />
-                                        <ProductPreview />
-                                        <ProductPreview />
-                                        <ProductPreview />
                                         <ProductPreview />
                                     </div>
                                     <hr />

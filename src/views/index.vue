@@ -49,13 +49,8 @@ export default {
                 <div
                   class="row large-columns-3 medium-columns- small-columns-2 row-normal has-shadow row-box-shadow-1 row-box-shadow-1-hover"
                 >
-                  <!-- ProductPreviewlerin geleceği yerler -->
-                  <ProductPreview />
-                  <ProductPreview />
-                  <ProductPreview />
-                  <ProductPreview />
-                  <ProductPreview />
-                  <ProductPreview />
+                    <!-- ProductPreviewlerin geleceği yerler -->
+                    <ProductPreview/>
                 </div>
                 <hr />
                 <!-- footer öncesi yazılar -->
