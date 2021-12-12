@@ -1,15 +1,17 @@
 
 import { createStore } from 'vuex'
+import axios from 'axios'
 
 export default createStore({
   state: {
     users: [],
     comments: [],
+    descriptions: [],
     selectedProduct: 0,
     selectedTab: 'description',
     selectedPage: 'home',
     filteredProducts: [],
-    cart: [{ id: 0, count: 3 }, { id: 1, count: 1 }],
+    cart: [],
     products: [
       {
         id: 0,
@@ -62,6 +64,18 @@ export default createStore({
 
     setFilteredProducts (state, products) {
       state.filteredProducts = products
+    },
+
+    setProducts (state, data) {
+      state.products = data
+    },
+
+    setComments (state, data) {
+      state.comments = data
+    },
+
+    setDescriptions (state, data) {
+      state.descriptions = data
     }
   },
   actions: {
@@ -111,8 +125,16 @@ export default createStore({
       } else {
         temp = context.state.products.filter(p => p.category === category)
       }
-      console.log(temp)
       context.commit('setFilteredProducts', temp)
+    },
+
+    async fetchData (context) {
+      var products = await axios.get('http://localhost:3000/products')
+      var comments = await axios.get('http://localhost:3000/comments')
+      var descriptions = await axios.get('http://localhost:3000/descriptions')
+      context.commit('setProducts', products.data)
+      context.commit('setComments', comments.data)
+      context.commit('setDescriptions', descriptions.data)
     }
   },
   getters: {
