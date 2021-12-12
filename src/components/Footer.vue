@@ -31,9 +31,10 @@ export default {
                   menu-item-object-page menu-item-19860
                 "
               >
-                <a href="./paymentAndDeliveryPage"
+              <router-link to="paymentAndDelivery">Ödeme ve Teslimat</router-link>
+                <!--<a href="./paymentAndDeliveryPage"
                   >Ödeme ve Teslimat</a
-                >
+                >-->
               </li>
               <li
                 id="menu-item-19861"

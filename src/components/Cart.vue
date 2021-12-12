@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <div id="content" class="content-area page-wrapper" role="main">
+    <div id="content" class="content-area page-wrapper" role="main" v-if="$store.state.cart.length !== 0">
         <div class="row row-main">
             <div class="large-12 col">
                 <div class="col-inner">
@@ -48,18 +48,29 @@ export default {
                                                 <!--Urunler-->
                                                 <tr
                                                     class="woocommerce-cart-form__cart-item cart_item"
+                                                    v-for="p in $store.state.cart" :key="p.id"
                                                 >
                                                     <td class="product-remove">
-                                                        <a
-                                                            href="https://www.kzkulaklik.com/sepet/?remove_item=c9b18e377e02237b3bfe5ab24e1f3573&amp;_wpnonce=6cbeaa686c"
+                                                        <router-link to="/cart" @click="$store.dispatch('removeFromCart', p.id)"
                                                             class="remove"
                                                             aria-label="Bu ürünü çıkar"
                                                             data-product_id="160"
                                                             data-product_sku
-                                                        >×</a>
+                                                        >x</router-link>
                                                     </td>
 
                                                     <td class="product-thumbnail">
+                                                        <router-link to="/product">
+                                                            <img
+                                                                width="247"
+                                                                height="247"
+                                                                :src= "$store.state.products.find(product => product.id === p.id).altimgSrc"
+                                                                class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazy-load-active"
+                                                                loading="lazy"
+                                                                sizes="(max-width: 247px) 100vw, 247px"
+                                                            />
+                                                        </router-link>
+                                                        <!--
                                                         <a
                                                             href="https://www.kzkulaklik.com/urun/kz-zsn-1ba1dd-hibrit-kulaklik/?attribute_renk=Siyah"
                                                         >
@@ -74,13 +85,15 @@ export default {
                                                                 data-srcset="https://www.kzkulaklik.com/wp-content/uploads/2019/03/ZSN-Pro-Siyah-Mik1-247x247.jpg 247w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/ZSN-Pro-Siyah-Mik1-150x150.jpg 150w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/ZSN-Pro-Siyah-Mik1-300x300.jpg 300w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/ZSN-Pro-Siyah-Mik1-768x768.jpg 768w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/ZSN-Pro-Siyah-Mik1-510x510.jpg 510w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/ZSN-Pro-Siyah-Mik1-100x100.jpg 100w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/ZSN-Pro-Siyah-Mik1.jpg 800w"
                                                                 sizes="(max-width: 247px) 100vw, 247px"
                                                             />
-                                                        </a>
+                                                        </a>-->
                                                     </td>
 
                                                     <td class="product-name" data-title="Ürün">
+                                                        <router-link to="/product">{{$store.getters.returnProductName(p.id)}}</router-link>
+                                                        <!--
                                                         <a
                                                             href="https://www.kzkulaklik.com/urun/kz-zsn-1ba1dd-hibrit-kulaklik/?attribute_renk=Siyah"
-                                                        >KZ ZSN Pro 1BA+1DD Hibrit Kulaklık - Siyah</a>
+                                                        >KZ ZSN Pro 1BA+1DD Hibrit Kulaklık - Siyah</a>-->
                                                         <div
                                                             class="show-for-small mobile-product-price"
                                                         >
@@ -91,7 +104,7 @@ export default {
                                                                 class="woocommerce-Price-amount amount"
                                                             >
                                                                 <bdi>
-                                                                    219,90&nbsp;
+                                                                    {{$store.getters.listingTotal(p.id)}}&nbsp;
                                                                     <span
                                                                         class="woocommerce-Price-currencySymbol"
                                                                     >TL</span>
@@ -105,7 +118,8 @@ export default {
                                                             class="woocommerce-Price-amount amount"
                                                         >
                                                             <bdi>
-                                                                219,90&nbsp;
+                                                                <!---->
+                                                                {{$store.state.products.find(product => product.id === p.id).discountedPrice}}&nbsp;
                                                                 <span
                                                                     class="woocommerce-Price-currencySymbol"
                                                                 >TL</span>
@@ -122,20 +136,16 @@ export default {
                                                                 type="button"
                                                                 value="-"
                                                                 class="minus button is-form"
+                                                                @click="$store.dispatch('decreaseCount', p.id)"
                                                             />
                                                             <label
                                                                 class="screen-reader-text"
                                                                 for="quantity_6179764c78096"
-                                                            >KZ ZSN Pro 1BA+1DD Hibrit Kulaklık - Siyah adet</label>
+                                                            ></label>
                                                             <input
                                                                 type="number"
-                                                                id="quantity_6179764c78096"
+                                                                v-model="p.count"
                                                                 class="input-text qty text"
-                                                                step="1"
-                                                                min="0"
-                                                                max="998"
-                                                                name="cart[c9b18e377e02237b3bfe5ab24e1f3573][qty]"
-                                                                value="2"
                                                                 title="Miktar"
                                                                 size="4"
                                                                 inputmode="numeric"
@@ -144,6 +154,7 @@ export default {
                                                                 type="button"
                                                                 value="+"
                                                                 class="plus button is-form"
+                                                                @click="$store.dispatch('increaseCount', p.id)"
                                                             />
                                                         </div>
                                                     </td>
@@ -156,126 +167,8 @@ export default {
                                                             class="woocommerce-Price-amount amount"
                                                         >
                                                             <bdi>
-                                                                439,80&nbsp;
-                                                                <span
-                                                                    class="woocommerce-Price-currencySymbol"
-                                                                >TL</span>
-                                                            </bdi>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                <tr
-                                                    class="woocommerce-cart-form__cart-item cart_item"
-                                                >
-                                                    <td class="product-remove">
-                                                        <a
-                                                            href="https://www.kzkulaklik.com/sepet/?remove_item=9939416ecd996ac250940aec8c1c5130&amp;_wpnonce=6cbeaa686c"
-                                                            class="remove"
-                                                            aria-label="Bu ürünü çıkar"
-                                                            data-product_id="175"
-                                                            data-product_sku
-                                                        >×</a>
-                                                    </td>
-
-                                                    <td class="product-thumbnail">
-                                                        <a
-                                                            href="https://www.kzkulaklik.com/urun/kz-zst-pro-1ba1dd-hibrit-kulaklik/?attribute_renk=Mor-Colormix"
-                                                        >
-                                                            <img
-                                                                width="247"
-                                                                height="247"
-                                                                src="https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-247x247.jpg"
-                                                                data-src="https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-247x247.jpg"
-                                                                class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazy-load-active"
-                                                                alt="KZ ZST Pro Kulak İçi Kulaklık"
-                                                                loading="lazy"
-                                                                srcset="https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-247x247.jpg 247w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-300x300.jpg 300w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-150x150.jpg 150w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-768x768.jpg 768w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-510x510.jpg 510w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-100x100.jpg 100w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor.jpg 800w"
-                                                                data-srcset="https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-247x247.jpg 247w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-300x300.jpg 300w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-150x150.jpg 150w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-768x768.jpg 768w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-510x510.jpg 510w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor-100x100.jpg 100w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZST-Pro-Kulak-Ici-Kulaklik-Mor.jpg 800w"
-                                                                sizes="(max-width: 247px) 100vw, 247px"
-                                                            />
-                                                        </a>
-                                                    </td>
-
-                                                    <td class="product-name" data-title="Ürün">
-                                                        <a
-                                                            href="https://www.kzkulaklik.com/urun/kz-zst-pro-1ba1dd-hibrit-kulaklik/?attribute_renk=Mor-Colormix"
-                                                        >KZ ZST Pro 1BA+1DD Hibrit Kulaklık - Mor-Colormix</a>
-                                                        <div
-                                                            class="show-for-small mobile-product-price"
-                                                        >
-                                                            <span
-                                                                class="mobile-product-price__qty"
-                                                            >1 x</span>
-                                                            <span
-                                                                class="woocommerce-Price-amount amount"
-                                                            >
-                                                                <bdi>
-                                                                    219,90&nbsp;
-                                                                    <span
-                                                                        class="woocommerce-Price-currencySymbol"
-                                                                    >TL</span>
-                                                                </bdi>
-                                                            </span>
-                                                        </div>
-                                                    </td>
-
-                                                    <td class="product-price" data-title="Fiyat">
-                                                        <span
-                                                            class="woocommerce-Price-amount amount"
-                                                        >
-                                                            <bdi>
-                                                                219,90&nbsp;
-                                                                <span
-                                                                    class="woocommerce-Price-currencySymbol"
-                                                                >TL</span>
-                                                            </bdi>
-                                                        </span>
-                                                    </td>
-
-                                                    <td
-                                                        class="product-quantity"
-                                                        data-title="Miktar"
-                                                    >
-                                                        <div class="quantity buttons_added">
-                                                            <input
-                                                                type="button"
-                                                                value="-"
-                                                                class="minus button is-form"
-                                                            />
-                                                            <label
-                                                                class="screen-reader-text"
-                                                                for="quantity_6179764c78efa"
-                                                            >KZ ZST Pro 1BA+1DD Hibrit Kulaklık - Mor-Colormix adet</label>
-                                                            <input
-                                                                type="number"
-                                                                id="quantity_6179764c78efa"
-                                                                class="input-text qty text"
-                                                                step="1"
-                                                                min="0"
-                                                                max="999"
-                                                                name="cart[9939416ecd996ac250940aec8c1c5130][qty]"
-                                                                value="1"
-                                                                title="Miktar"
-                                                                size="4"
-                                                                inputmode="numeric"
-                                                            />
-                                                            <input
-                                                                type="button"
-                                                                value="+"
-                                                                class="plus button is-form"
-                                                            />
-                                                        </div>
-                                                    </td>
-
-                                                    <td
-                                                        class="product-subtotal"
-                                                        data-title="Ara Toplam"
-                                                    >
-                                                        <span
-                                                            class="woocommerce-Price-amount amount"
-                                                        >
-                                                            <bdi>
-                                                                219,90&nbsp;
+                                                                <!---->
+                                                                {{$store.state.products.find(product => product.id === p.id).discountedPrice * $store.state.cart.find(c => c.id ===p.id).count}}&nbsp;
                                                                 <span
                                                                     class="woocommerce-Price-currencySymbol"
                                                                 >TL</span>
@@ -288,10 +181,11 @@ export default {
                                                         <div
                                                             class="continue-shopping pull-left text-left"
                                                         >
-                                                            <a
+                                                            <router-link to="/" class="button-continue-shopping button primary is-outline">←&nbsp;Alışverişe devam et</router-link>
+                                                            <!--<a
                                                                 class="button-continue-shopping button primary is-outline"
                                                                 href="https://www.kzkulaklik.com/magaza/"
-                                                            >←&nbsp;Alışverişe devam et</a>
+                                                            >←&nbsp;Alışverişe devam et</a>-->
                                                         </div>
 
                                                         <button
@@ -351,7 +245,8 @@ export default {
                                                             class="woocommerce-Price-amount amount"
                                                         >
                                                             <bdi>
-                                                                659,70&nbsp;
+                                                                <!---->
+                                                                {{$store.getters.cartTotal}}&nbsp;
                                                                 <span
                                                                     class="woocommerce-Price-currencySymbol"
                                                                 >TL</span>
@@ -403,7 +298,8 @@ export default {
                                                                 class="woocommerce-Price-amount amount"
                                                             >
                                                                 <bdi>
-                                                                    659,70&nbsp;
+                                                                    <!---->
+                                                                     {{$store.getters.cartTotal}}&nbsp;
                                                                     <span
                                                                         class="woocommerce-Price-currencySymbol"
                                                                     >TL</span>
@@ -433,4 +329,23 @@ export default {
             </div>
         </div>
     </div>
+    <!--sepet boş ise-->
+    <div id="content" class="content-area page-wrapper" role="main" v-else>
+    <div class="row row-main">
+        <div class="large-12 col">
+            <div class="col-inner">
+                <div class="woocommerce">
+                    <div class="text-center pt pb">
+                        <div class="woocommerce-notices-wrapper"></div>
+                        <p class="cart-empty woocommerce-info">Sepetiniz şu anda boş.</p>
+                        <p class="return-to-shop">
+                            <router-link to="/" class="button primary wc-backward">
+                            Mağazaya geri dön</router-link>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </template>

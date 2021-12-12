@@ -1,10 +1,10 @@
 <script>
-import ProductPreview from "./ProductPreview.vue"
+import ProductPreview from './ProductPreview.vue'
 
 export default {
   name: 'RelatedProducts',
-  components:{
-      ProductPreview
+  components: {
+    ProductPreview
   }
 }
 </script>
@@ -20,11 +20,9 @@ export default {
             tabindex="0"
         >
             <div class="flickity-viewport" style="height: 456.766px; touch-action: pan-y;">
-                <div class="flickity-slider" style="left: 0px; transform: translateX(-200%);">
+                <div class="flickity-slider" style="left: 0px; transform: translateX(0);">
                     <!-- ProductPreview lerin gelecegi yer -->
-                    <ProductPreview style="position: absolute; left: 200%;" />
-                    <ProductPreview style="position: absolute; left: 233%;" />
-                    <ProductPreview style="position: absolute; left: 266%;" />
+                    <ProductPreview style="position: absolute; left: 0%;" />
                 </div>
             </div>
             <button

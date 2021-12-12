@@ -13,6 +13,12 @@ export default {
     WarrantyAndReturn,
     Reviews,
     RelatedProducts
+  },
+  data: function () {
+    return {
+      number: 1,
+      styleP: 'width: ' + this.$store.getters.selectedProduct.stars * 20 + '%'
+    }
   }
 }
 </script>
@@ -63,25 +69,18 @@ export default {
                                                     class="woocommerce-product-gallery__image slide first is-selected is-ready"
                                                     style="position: absolute; left: 0%;"
                                                 >
+                                                    <!---->
                                                     <a
                                                         href="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1.jpg"
                                                     >
                                                         <img
                                                             width="510"
                                                             height="510"
-                                                            src="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1.jpg"
+                                                            :src="$store.getters.selectedProduct.imgSrc"
                                                             class="wp-post-image skip-lazy lazy-load-active"
                                                             alt="KZ ZSN Pro Kulak İçi Kulaklık"
                                                             loading="lazy"
                                                             title="KZ ZSN Pro 1BA+1DD Hibrit Kulak İçi Kulaklık"
-                                                            data-caption
-                                                            data-src="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1.jpg"
-                                                            data-large_image="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1.jpg"
-                                                            data-large_image_width="800"
-                                                            data-large_image_height="800"
-                                                            srcset="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-510x510.jpg 510w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-300x300.jpg 300w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-150x150.jpg 150w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-768x768.jpg 768w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-247x247.jpg 247w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-100x100.jpg 100w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1.jpg 800w"
-                                                            data-srcset="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-510x510.jpg 510w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-300x300.jpg 300w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-150x150.jpg 150w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-768x768.jpg 768w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-247x247.jpg 247w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-100x100.jpg 100w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1.jpg 800w"
-                                                            sizes="(max-width: 510px) 100vw, 510px"
                                                         />
                                                     </a>
                                                 </div>
@@ -305,25 +304,49 @@ export default {
                         class="product-info summary col-fit col entry-summary product-summary text-left"
                     >
                         <nav class="woocommerce-breadcrumb breadcrumbs uppercase">
-                            <a href="https://www.kzkulaklik.com">Ana Sayfa</a>
+                            <router-link to="/">Ana Sayfa</router-link>
                             <span class="divider">/</span>
-                            <a
-                                href="https://www.kzkulaklik.com/urun-kategori/kz-kulaklik/"
-                            >KZ Kulaklık</a>
+                            <router-link to="/kulakliklar"
+                            >KZ Kulaklık</router-link>
                         </nav>
+                        <!---->
                         <h1
                             class="product-title product_title entry-title"
-                        >KZ ZSN Pro 1BA+1DD Hibrit Kulaklık</h1>
+                        >{{$store.getters.selectedProduct.productName}}</h1>
                         <ul class="next-prev-thumbs is-small show-for-medium">
                             <li class="prod-dropdown has-dropdown">
+                                <router-link to="/"
+                                    rel="next"
+                                    class="button icon is-outline circle"
+                                    >
+                                    <i class="icon-angle-left"></i>
+                                    </router-link>
+                                <!--
                                 <a
                                     href="https://www.kzkulaklik.com/urun/kz-zst-pro-1ba1dd-hibrit-kulaklik/"
                                     rel="next"
                                     class="button icon is-outline circle"
                                 >
                                     <i class="icon-angle-left"></i>
-                                </a>
+                                </a>-->
                                 <div class="nav-dropdown">
+                                    <router-link
+                                        to="/"
+                                        title="KZ ZST Pro 1BA+1DD Hibrit Kulaklık"
+                                    >
+                                        <img
+                                            width="100"
+                                            height="100"
+                                            src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20100%20100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E"
+                                            data-src="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-100x100.jpg"
+                                            class="lazy-load attachment-woocommerce_gallery_thumbnail size-woocommerce_gallery_thumbnail wp-post-image"
+                                            alt="KZ ZST Pro 1BA+1DD Kulak İçi Kulaklık"
+                                            loading="lazy"
+                                            data-srcset="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-100x100.jpg 100w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-300x300.jpg 300w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-150x150.jpg 150w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-768x768.jpg 768w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-247x247.jpg 247w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-510x510.jpg 510w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2.jpg 800w"
+                                            sizes="(max-width: 100px) 100vw, 100px"
+                                        />
+                                    </router-link>
+                                    <!--
                                     <a
                                         title="KZ ZST Pro 1BA+1DD Hibrit Kulaklık"
                                         href="https://www.kzkulaklik.com/urun/kz-zst-pro-1ba1dd-hibrit-kulaklik/"
@@ -339,7 +362,7 @@ export default {
                                             data-srcset="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-100x100.jpg 100w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-300x300.jpg 300w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-150x150.jpg 150w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-768x768.jpg 768w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-247x247.jpg 247w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2-510x510.jpg 510w, https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1-2.jpg 800w"
                                             sizes="(max-width: 100px) 100vw, 100px"
                                         />
-                                    </a>
+                                    </a>-->
                                 </div>
                             </li>
                             <li class="prod-dropdown has-dropdown">
@@ -377,7 +400,8 @@ export default {
                                     role="img"
                                     aria-label="5 üzerinden 4.89 oy aldı"
                                 >
-                                    <span style="width:97.8%">
+                                <!---->
+                                    <span :style="styleP">
                                         <span class="rating">75</span> müşteri puanına dayanarak 5 üzerinden
                                         <strong
                                             class="rating"
@@ -413,15 +437,6 @@ export default {
                         <div class="product-short-description">
                             <p>KZ ZSN Pro 1BA+1DD Dengeli Armatür ve Dinamik Sürücü Hibrit, HD Mikrofonlu, Gürültü Azaltıcı Kulak İçi Kulaklık</p>
                         </div>
-                        <form
-                            class="variations_form cart"
-                            action="https://www.kzkulaklik.com/urun/kz-zsn-1ba1dd-hibrit-kulaklik/"
-                            method="post"
-                            enctype="multipart/form-data"
-                            data-product_id="160"
-                            data-product_variations="[{&quot;attributes&quot;:{&quot;attribute_renk&quot;:&quot;Siyah&quot;},&quot;availability_html&quot;:&quot;<p class=\&quot;stock in-stock\&quot;>Stokta<\/p>\n&quot;,&quot;backorders_allowed&quot;:false,&quot;dimensions&quot;:{&quot;length&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;dimensions_html&quot;:&quot;Yok&quot;,&quot;display_price&quot;:219.9,&quot;display_regular_price&quot;:259.9,&quot;image&quot;:{&quot;title&quot;:&quot;ZSN Pro Siyah Mik1&quot;,&quot;caption&quot;:&quot;&quot;,&quot;url&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1.jpg&quot;,&quot;alt&quot;:&quot;&quot;,&quot;src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1-510x510.jpg&quot;,&quot;srcset&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1-510x510.jpg 510w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1-150x150.jpg 150w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1-300x300.jpg 300w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1-768x768.jpg 768w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1-247x247.jpg 247w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1-100x100.jpg 100w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1.jpg 800w&quot;,&quot;sizes&quot;:&quot;(max-width: 510px) 100vw, 510px&quot;,&quot;full_src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1.jpg&quot;,&quot;full_src_w&quot;:800,&quot;full_src_h&quot;:800,&quot;gallery_thumbnail_src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1-100x100.jpg&quot;,&quot;gallery_thumbnail_src_w&quot;:100,&quot;gallery_thumbnail_src_h&quot;:100,&quot;thumb_src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Siyah-Mik1-247x247.jpg&quot;,&quot;thumb_src_w&quot;:247,&quot;thumb_src_h&quot;:247,&quot;src_w&quot;:510,&quot;src_h&quot;:510},&quot;image_id&quot;:319,&quot;is_downloadable&quot;:false,&quot;is_in_stock&quot;:true,&quot;is_purchasable&quot;:true,&quot;is_sold_individually&quot;:&quot;no&quot;,&quot;is_virtual&quot;:false,&quot;max_qty&quot;:998,&quot;min_qty&quot;:1,&quot;price_html&quot;:&quot;&quot;,&quot;sku&quot;:&quot;&quot;,&quot;variation_description&quot;:&quot;&quot;,&quot;variation_id&quot;:519,&quot;variation_is_active&quot;:true,&quot;variation_is_visible&quot;:true,&quot;weight&quot;:&quot;&quot;,&quot;weight_html&quot;:&quot;Yok&quot;},{&quot;attributes&quot;:{&quot;attribute_renk&quot;:&quot;Mavi&quot;},&quot;availability_html&quot;:&quot;<p class=\&quot;stock in-stock\&quot;>Stokta<\/p>\n&quot;,&quot;backorders_allowed&quot;:false,&quot;dimensions&quot;:{&quot;length&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;dimensions_html&quot;:&quot;Yok&quot;,&quot;display_price&quot;:219.9,&quot;display_regular_price&quot;:259.9,&quot;image&quot;:{&quot;title&quot;:&quot;KZ ZSN Pro Mavi&quot;,&quot;caption&quot;:&quot;&quot;,&quot;url&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1.jpg&quot;,&quot;alt&quot;:&quot;ZSN Pro Mavi&quot;,&quot;src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1-510x510.jpg&quot;,&quot;srcset&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1-510x510.jpg 510w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1-150x150.jpg 150w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1-300x300.jpg 300w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1-768x768.jpg 768w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1-247x247.jpg 247w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1-100x100.jpg 100w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1.jpg 800w&quot;,&quot;sizes&quot;:&quot;(max-width: 510px) 100vw, 510px&quot;,&quot;full_src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1.jpg&quot;,&quot;full_src_w&quot;:800,&quot;full_src_h&quot;:800,&quot;gallery_thumbnail_src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1-100x100.jpg&quot;,&quot;gallery_thumbnail_src_w&quot;:100,&quot;gallery_thumbnail_src_h&quot;:100,&quot;thumb_src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mavi1-247x247.jpg&quot;,&quot;thumb_src_w&quot;:247,&quot;thumb_src_h&quot;:247,&quot;src_w&quot;:510,&quot;src_h&quot;:510},&quot;image_id&quot;:320,&quot;is_downloadable&quot;:false,&quot;is_in_stock&quot;:true,&quot;is_purchasable&quot;:true,&quot;is_sold_individually&quot;:&quot;no&quot;,&quot;is_virtual&quot;:false,&quot;max_qty&quot;:1000,&quot;min_qty&quot;:1,&quot;price_html&quot;:&quot;&quot;,&quot;sku&quot;:&quot;&quot;,&quot;variation_description&quot;:&quot;&quot;,&quot;variation_id&quot;:162,&quot;variation_is_active&quot;:true,&quot;variation_is_visible&quot;:true,&quot;weight&quot;:&quot;&quot;,&quot;weight_html&quot;:&quot;Yok&quot;},{&quot;attributes&quot;:{&quot;attribute_renk&quot;:&quot;Mor&quot;},&quot;availability_html&quot;:&quot;<p class=\&quot;stock in-stock\&quot;>Stokta<\/p>\n&quot;,&quot;backorders_allowed&quot;:false,&quot;dimensions&quot;:{&quot;length&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;dimensions_html&quot;:&quot;Yok&quot;,&quot;display_price&quot;:219.9,&quot;display_regular_price&quot;:259.9,&quot;image&quot;:{&quot;title&quot;:&quot;KZ ZSN Pro Mor&quot;,&quot;caption&quot;:&quot;&quot;,&quot;url&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1.jpg&quot;,&quot;alt&quot;:&quot;ZSN Pro Mor&quot;,&quot;src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1-510x510.jpg&quot;,&quot;srcset&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1-510x510.jpg 510w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1-150x150.jpg 150w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1-300x300.jpg 300w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1-768x768.jpg 768w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1-247x247.jpg 247w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1-100x100.jpg 100w, https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1.jpg 800w&quot;,&quot;sizes&quot;:&quot;(max-width: 510px) 100vw, 510px&quot;,&quot;full_src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1.jpg&quot;,&quot;full_src_w&quot;:800,&quot;full_src_h&quot;:800,&quot;gallery_thumbnail_src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1-100x100.jpg&quot;,&quot;gallery_thumbnail_src_w&quot;:100,&quot;gallery_thumbnail_src_h&quot;:100,&quot;thumb_src&quot;:&quot;https:\/\/www.kzkulaklik.com\/wp-content\/uploads\/2019\/03\/ZSN-Pro-Mor1-247x247.jpg&quot;,&quot;thumb_src_w&quot;:247,&quot;thumb_src_h&quot;:247,&quot;src_w&quot;:510,&quot;src_h&quot;:510},&quot;image_id&quot;:321,&quot;is_downloadable&quot;:false,&quot;is_in_stock&quot;:true,&quot;is_purchasable&quot;:true,&quot;is_sold_individually&quot;:&quot;no&quot;,&quot;is_virtual&quot;:false,&quot;max_qty&quot;:1000,&quot;min_qty&quot;:1,&quot;price_html&quot;:&quot;&quot;,&quot;sku&quot;:&quot;&quot;,&quot;variation_description&quot;:&quot;&quot;,&quot;variation_id&quot;:161,&quot;variation_is_active&quot;:true,&quot;variation_is_visible&quot;:true,&quot;weight&quot;:&quot;&quot;,&quot;weight_html&quot;:&quot;Yok&quot;}]"
-                            current-image
-                        >
                             <table class="variations" cellspacing="0">
                                 <tbody>
                                     <tr>
@@ -456,43 +471,30 @@ export default {
                                     style="display: none;"
                                 ></div>
                                 <div
-                                    class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-disabled"
+                                    class="variations_button woocommerce-variation-add-to-cart-disabled"
                                 >
+                                    <!---->
                                     <div class="quantity buttons_added">
-                                        <input type="button" value="-" class="minus button is-form" />
+                                        <input type="button" value="-" class="minus button is-form" @click="number--"/>
                                         <label
                                             class="screen-reader-text"
                                             for="quantity_617807c1980c9"
-                                        >KZ ZSN Pro 1BA+1DD Hibrit Kulaklık adet</label>
+                                        >{{$store.getters.selectedProduct.productName}} adet</label>
                                         <input
                                             type="number"
-                                            id="quantity_617807c1980c9"
-                                            class="input-text qty text"
-                                            step="1"
-                                            min="1"
-                                            name="quantity"
-                                            value="1"
+                                            v-model= "number"
                                             title="Miktar"
                                             size="4"
                                             inputmode="numeric"
                                         />
-                                        <input type="button" value="+" class="plus button is-form" />
+                                        <input type="button" value="+" class="plus button is-form" @click="number++"/>
                                     </div>
                                     <button
-                                        type="submit"
-                                        class="single_add_to_cart_button button alt disabled wc-variation-selection-needed"
+                                        @click="$store.dispatch('addToCart', number)"
+                                        class="button alt disabled"
                                     >Sepete Ekle</button>
-                                    <input type="hidden" name="add-to-cart" value="160" />
-                                    <input type="hidden" name="product_id" value="160" />
-                                    <input
-                                        type="hidden"
-                                        name="variation_id"
-                                        class="variation_id"
-                                        value="0"
-                                    />
                                 </div>
                             </div>
-                        </form>
                         <strong>
                             <span style="color: #0788d9;">Ücretsiz Kargo!</span>
                         </strong> Hafta içi saat 15:00'e kadar, cumartesi günü saat 13:00'e kadar satın alınan ürünler aynı gün kargoya verilir. Kargo takip bilgisi email adresinize gönderilir.
@@ -572,53 +574,58 @@ export default {
             <div class="product-footer">
                 <div class="container">
                     <div class="woocommerce-tabs wc-tabs-wrapper container tabbed-content">
+                        <!--Tabs-->
                         <ul
                             class="tabs wc-tabs product-tabs small-nav-collapse nav nav-uppercase nav-line-grow nav-left"
                             role="tablist"
                         >
                             <li
-                                class="description_tab active"
+                                class="description_tab"
+                                :class="[$store.state.selectedTab == 'description' ? ' active' : '']"
                                 id="tab-title-description"
                                 role="tab"
                                 aria-controls="tab-description"
                             >
-                                <a href="#tab-description">Açıklama</a>
+                                <a @click="$store.dispatch('selectTab', 'description')">Açıklama</a>
                             </li>
                             <li
                                 class="odeme-ve-teslimat_tab"
+                                :class="[$store.state.selectedTab == 'payment' ? ' active' : '']"
                                 id="tab-title-odeme-ve-teslimat"
                                 role="tab"
                                 aria-controls="tab-odeme-ve-teslimat"
                             >
-                                <a href="#tab-odeme-ve-teslimat">Ödeme ve Teslimat</a>
+                                <a @click="$store.dispatch('selectTab', 'payment')">Ödeme ve Teslimat</a>
                             </li>
                             <li
                                 class="garanti-ve-iade_tab"
+                                :class="[$store.state.selectedTab == 'warranty' ? ' active' : '']"
                                 id="tab-title-garanti-ve-iade"
                                 role="tab"
                                 aria-controls="tab-garanti-ve-iade"
                             >
-                                <a href="#tab-garanti-ve-iade">Garanti ve İade</a>
+                                <a @click="$store.dispatch('selectTab', 'warranty')">Garanti ve İade</a>
                             </li>
                             <li
                                 class="reviews_tab"
+                                :class="[$store.state.selectedTab == 'reviews' ? ' active' : '']"
                                 id="tab-title-reviews"
                                 role="tab"
                                 aria-controls="tab-reviews"
                             >
-                                <a href="#tab-reviews">İnceleme (75)</a>
+                                <a @click="$store.dispatch('selectTab', 'reviews')">İnceleme (75)</a>
                             </li>
                         </ul>
                         <!-- active classına sahip tab gözükecek-->
                         <div class="tab-panels">
                             <!-- tab-description -->
-                            <DescriptionTab class="active" />
+                            <DescriptionTab :class="[$store.state.selectedTab == 'description' ? ' active' : '']"/>
                             <!-- tab-odeme-ve-teslimat -->
-                            <PaymentAndDelivery />
+                            <PaymentAndDelivery :class="[$store.state.selectedTab == 'payment' ? ' active' : '']"/>
                             <!-- tab-garanti-ve-iade -->
-                            <WarrantyAndReturn />
+                            <WarrantyAndReturn :class="[$store.state.selectedTab == 'warranty' ? ' active' : '']"/>
                             <!-- tab-incelemeler-->
-                            <Reviews />
+                            <Reviews :class="[$store.state.selectedTab == 'reviews' ? ' active' : '']"/>
                         </div>
                     </div>
                     <!-- ilgili urunlerin gelecegi yer-->

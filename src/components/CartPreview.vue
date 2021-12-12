@@ -38,14 +38,16 @@ export default {
                         </span>
                     </p>
                     <p class="woocommerce-mini-cart__buttons buttons">
-                        <a
+                        <router-link to="/cart" class="button wc-forward">Sepeti Görüntüle</router-link>
+                        <!--<a
                             href="https://www.kzkulaklik.com/sepet/"
                             class="button wc-forward"
-                        >Sepeti görüntüle</a>
-                        <a
+                        >Sepeti görüntüle</a>-->
+                        <router-link to="/paymentAndDelivery" class="button wc-forward">Satın Al</router-link>
+                        <!--<a
                             href="https://www.kzkulaklik.com/odeme/"
                             class="button checkout wc-forward"
-                        >Satın AL</a>
+                        >Satın AL</a>-->
                     </p>
                     <!-- Sepette ürün yoksa sadece aşağıdaki p elementi gösteriliyor -->
                     <!--

@@ -24,7 +24,7 @@ export default {
           <div class="row row-main">
             <div class="large-12 col">
               <div class="col-inner">
-                <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_822587038">
+                <div>
                   <!-- Product container -->
                   <div
                     class="row large-columns-3 medium-columns- small-columns-2 row-normal has-shadow row-box-shadow-1 row-box-shadow-1-hover"
