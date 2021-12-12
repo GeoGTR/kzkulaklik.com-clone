@@ -5,6 +5,9 @@ export default {
   name: 'IndexPage',
   components: {
     ProductPreview
+  },
+  created () {
+    this.$store.dispatch('filterProducts', 'all')
   }
 }
 </script>

@@ -10,7 +10,7 @@ export default {
 <template>
     <div
         class="product-small col has-hover product type-product post-160 status-publish first instock product_cat-kz-kulaklik product_tag-kulaklik product_tag-kz-kulaklik has-post-thumbnail sale featured shipping-taxable purchasable product-type-variable"
-        v-for="p in $store.state.products" :key="p.id"
+        v-for="p in $store.state.filteredProducts" :key="p.id"
     >
         <SingleProductPreview
             :id = "p.id"

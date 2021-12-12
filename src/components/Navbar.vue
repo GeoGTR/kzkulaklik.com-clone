@@ -4,7 +4,6 @@ import CartPreview from './CartPreview.vue'
 
 export default {
   name: 'Navbar',
-  activePage: 'home',
   components: {
     Search,
     CartPreview

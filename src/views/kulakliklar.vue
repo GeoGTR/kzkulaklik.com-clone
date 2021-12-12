@@ -7,6 +7,9 @@ export default {
   components: {
     FilterTop,
     ProductPreview
+  },
+  created () {
+    this.$store.dispatch('filterProducts', 'kulaklik')
   }
 }
 </script>

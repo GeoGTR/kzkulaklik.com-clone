@@ -1,3 +1,4 @@
+
 import { createStore } from 'vuex'
 
 export default createStore({
@@ -7,6 +8,7 @@ export default createStore({
     selectedProduct: 0,
     selectedTab: 'description',
     selectedPage: 'home',
+    filteredProducts: [],
     cart: [{ id: 0, count: 3 }, { id: 1, count: 1 }],
     products: [
       {
@@ -15,6 +17,7 @@ export default createStore({
         altimgSrc: require('@/assets/products/alt.jpg'),
         productName: 'ürün 1',
         description: 'KZ ZSN Pro 1BA+1DD Dengeli Armatür ve Dinamik Sürücü Hibrit, HD Mikrofonlu, Gürültü Azaltıcı Kulak İçi Kulaklık',
+        category: 'kulaklik',
         stars: 5,
         originalPrice: 100,
         discountedPrice: 90
@@ -25,6 +28,7 @@ export default createStore({
         altimgSrc: require('@/assets/products/main.jpg'),
         productName: 'ürün 2',
         description: '*2 KZ ZSN Pro 1BA+1DD Dengeli Armatür ve Dinamik Sürücü Hibrit, HD Mikrofonlu, Gürültü Azaltıcı Kulak İçi Kulaklık',
+        category: 'kablo',
         stars: 2.5,
         originalPrice: 200,
         discountedPrice: 180
@@ -54,6 +58,10 @@ export default createStore({
 
     decreaseCount (state, id) {
       state.cart[id].count--
+    },
+
+    setFilteredProducts (state, products) {
+      state.filteredProducts = products
     }
   },
   actions: {
@@ -94,6 +102,17 @@ export default createStore({
 
     decreaseCount (context, id) {
       context.commit('decreaseCount', id)
+    },
+
+    filterProducts (context, category) {
+      var temp = []
+      if (category === 'all') {
+        temp = context.state.products
+      } else {
+        temp = context.state.products.filter(p => p.category === category)
+      }
+      console.log(temp)
+      context.commit('setFilteredProducts', temp)
     }
   },
   getters: {
