@@ -6,6 +6,16 @@ export default {
   components: {
     Navbar,
     Footer
+  },
+  async created () {
+    this.isBusy = true
+    try {
+      await this.$store.dispatch('fetchData')
+    } catch (ex) {
+      this.error = 'Failed to load data'
+    } finally {
+      this.isBusy = false
+    }
   }
 }
 </script>
