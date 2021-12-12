@@ -16,6 +16,7 @@ export default {
     } finally {
       this.isBusy = false
     }
+    this.$store.dispatch('filterProducts', 'all')
   }
 }
 </script>

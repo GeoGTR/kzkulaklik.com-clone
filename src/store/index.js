@@ -12,8 +12,8 @@ export default createStore({
     selectedPage: 'home',
     filteredProducts: [],
     cart: [],
-    products: [
-      {
+    products: []
+    /* {
         id: 0,
         imgSrc: require('@/assets/products/main.jpg'),
         altimgSrc: require('@/assets/products/alt.jpg'),
@@ -34,8 +34,7 @@ export default createStore({
         stars: 2.5,
         originalPrice: 200,
         discountedPrice: 180
-      }
-    ]
+      } */
   },
   mutations: {
     setSelectedProduct (state, id) {

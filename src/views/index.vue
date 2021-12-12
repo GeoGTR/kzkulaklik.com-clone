@@ -6,7 +6,7 @@ export default {
   components: {
     ProductPreview
   },
-  created () {
+  mounted () {
     this.$store.dispatch('filterProducts', 'all')
   }
 }
