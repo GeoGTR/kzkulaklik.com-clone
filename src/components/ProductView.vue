@@ -70,9 +70,7 @@ export default {
                                                     style="position: absolute; left: 0%;"
                                                 >
                                                     <!---->
-                                                    <a
-                                                        href="https://www.kzkulaklik.com/wp-content/uploads/2019/03/main-1.jpg"
-                                                    >
+                                                    <a>
                                                         <img
                                                             width="510"
                                                             height="510"
@@ -91,7 +89,6 @@ export default {
                                                     style="position: absolute; left: 100%;"
                                                 >
                                                     <a
-                                                        href="https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZSN-Pro-Mikrofonlu-Kulak-Ici-Kulaklik-Siyah.jpg"
                                                     >
                                                         <img
                                                             width="510"
@@ -117,9 +114,7 @@ export default {
                                                     aria-hidden="true"
                                                     style="position: absolute; left: 200%;"
                                                 >
-                                                    <a
-                                                        href="https://www.kzkulaklik.com/wp-content/uploads/2019/03/ZSN-Pro-mavimor.jpg"
-                                                    >
+                                                    <a>
                                                         <img
                                                             width="510"
                                                             height="510"
@@ -143,9 +138,7 @@ export default {
                                                     aria-hidden="true"
                                                     style="position: absolute; left: 300%;"
                                                 >
-                                                    <a
-                                                        href="https://www.kzkulaklik.com/wp-content/uploads/2019/03/KZ-ZSN-Pro-Paket.jpg"
-                                                    >
+                                                    <a>
                                                         <img
                                                             width="510"
                                                             height="509"
@@ -393,7 +386,7 @@ export default {
                                 </div>
                             </li>
                         </ul>
-                        <div class="woocommerce-product-rating">
+                        <div class="woocommerce-product-rating" v-if = "$store.getters.selectedProduct.stars !== 0">
                             <a href="#reviews" class="woocommerce-review-link" rel="nofollow">
                                 <div
                                     class="star-rating"
@@ -401,7 +394,7 @@ export default {
                                     aria-label="5 üzerinden 4.89 oy aldı"
                                 >
                                 <!---->
-                                    <span :style="styleP">
+                                    <span :style = "styleP">
                                         <span class="rating">75</span> müşteri puanına dayanarak 5 üzerinden
                                         <strong
                                             class="rating"
@@ -415,7 +408,7 @@ export default {
                                 <del aria-hidden="true">
                                     <span class="woocommerce-Price-amount amount">
                                         <bdi>
-                                            259,90&nbsp;
+                                            {{$store.getters.selectedProduct.originalPrice}}&nbsp;
                                             <span
                                                 class="woocommerce-Price-currencySymbol"
                                             >TL</span>
@@ -425,7 +418,7 @@ export default {
                                 <ins>
                                     <span class="woocommerce-Price-amount amount">
                                         <bdi>
-                                            219,90&nbsp;
+                                            {{$store.getters.selectedProduct.discountedPrice}}&nbsp;
                                             <span
                                                 class="woocommerce-Price-currencySymbol"
                                             >TL</span>
@@ -435,36 +428,8 @@ export default {
                             </p>
                         </div>
                         <div class="product-short-description">
-                            <p>KZ ZSN Pro 1BA+1DD Dengeli Armatür ve Dinamik Sürücü Hibrit, HD Mikrofonlu, Gürültü Azaltıcı Kulak İçi Kulaklık</p>
+                            <p>{{$store.getters.selectedProduct.description}}</p>
                         </div>
-                            <table class="variations" cellspacing="0">
-                                <tbody>
-                                    <tr>
-                                        <td class="label">
-                                            <label for="renk">Renk</label>
-                                        </td>
-                                        <td class="value">
-                                            <select
-                                                id="renk"
-                                                class
-                                                name="attribute_renk"
-                                                data-attribute_name="attribute_renk"
-                                                data-show_option_none="yes"
-                                            >
-                                                <option value>Bir seçim yapın</option>
-                                                <option value="Siyah" class="attached enabled">Siyah</option>
-                                                <option value="Mavi" class="attached enabled">Mavi</option>
-                                                <option value="Mor" class="attached enabled">Mor</option>
-                                            </select>
-                                            <a
-                                                class="reset_variations"
-                                                href="#"
-                                                style="visibility: hidden;"
-                                            >Temizle</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
                             <div class="single_variation_wrap">
                                 <div
                                     class="woocommerce-variation single_variation"
@@ -613,7 +578,7 @@ export default {
                                 role="tab"
                                 aria-controls="tab-reviews"
                             >
-                                <a @click="$store.dispatch('selectTab', 'reviews')">İnceleme (75)</a>
+                                <a @click="$store.dispatch('selectTab', 'reviews')">İnceleme ({{$store.getters.reviewCount}})</a>
                             </li>
                         </ul>
                         <!-- active classına sahip tab gözükecek-->

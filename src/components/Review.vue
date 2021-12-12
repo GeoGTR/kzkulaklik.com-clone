@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: 'Review'
+  name: 'Review',
+  methods: {
+    styleP (a) {
+      return 'width: ' + a * 20 + '%'
+    }
+  }
 }
 </script>
 
@@ -9,7 +14,9 @@ export default {
         class="review byuser comment-author-emre-demir even thread-even depth-1"
         id="li-comment-32055"
     >
-        <div id="comment-32055" class="comment_container review-item flex-row align-top">
+        <div id="comment-32055" class="comment_container review-item flex-row align-top"
+            v-for="r in $store.getters.currentReviews" :key="r.id"
+        >
             <div class="flex-col">
                 <img
                     src="https://secure.gravatar.com/avatar/f4ea9547b4062a695c25c1476dea4583?s=60&amp;d=mm&amp;r=g"
@@ -24,21 +31,21 @@ export default {
             </div>
             <div class="comment-text flex-col flex-grow">
                 <div class="star-rating" role="img" aria-label="5 üzerinden 5 oy aldı">
-                    <span style="width:100%">
+                    <span :style="styleP(r.star)">
                         5 üzerinden
-                        <strong class="rating">5</strong> oy aldı
+                        <strong class="rating">{{r.star}}</strong> oy aldı
                     </span>
                 </div>
                 <p class="meta">
-                    <strong class="woocommerce-review__author">EMRE DEMİR</strong>
-                    <span class="woocommerce-review__dash">–</span>
+                    <strong class="woocommerce-review__author">{{r.username}}</strong>
+                    <span class="woocommerce-review__dash">-</span>
                     <time
                         class="woocommerce-review__published-date"
                         datetime="2021-07-26T16:13:40+03:00"
-                    >26 Temmuz 2021</time>
+                    >{{r.commnetDate}}</time>
                 </p>
                 <div class="description">
-                    <p>bir müzik sever olarak smsl ve fiio amfilerle denedim oldukça tatminkar jazz da biraz tizler yordu kulamı bir eq yapmak gerek onun dışında güzel</p>
+                    <p>{{r.comment}}</p>
                 </div>
             </div>
         </div>

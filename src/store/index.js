@@ -158,6 +158,18 @@ export default createStore({
 
     selectedProduct: state => {
       return state.products.find(p => p.id === state.selectedProduct)
+    },
+
+    reviewCount: state => {
+      return state.comments.filter(c => c.id === state.selectedProduct).length
+    },
+
+    currentReviews: state => {
+      return state.comments.filter(c => c.id === state.selectedProduct)
+    },
+
+    currentDescription: state => {
+      return state.descriptions.find(d => d.id === state.selectedProduct)
     }
   },
   modules: {

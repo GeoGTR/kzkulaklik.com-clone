@@ -20,12 +20,10 @@ export default {
         <div id="reviews" class="woocommerce-Reviews row">
             <div id="comments" class="col large-7">
                 <h3 class="woocommerce-Reviews-title normal">
-                    <span>KZ EDX 1DD Mikrofonlu Kulak İçi Kulaklık</span> için 5 inceleme
+                    <span>{{$store.getters.selectedProduct.productName}}</span> için {{$store.getters.reviewCount}} inceleme
                 </h3>
                 <ol class="commentlist">
                     <!-- Review componentlerin gelecegi yer-->
-                    <Review/>
-                    <Review/>
                     <Review/>
                 </ol>
             </div>
