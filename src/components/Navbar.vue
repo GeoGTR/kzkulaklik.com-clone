@@ -208,7 +208,7 @@ export default {
                 </router-link>
                 <!--<a href="./loginPage" class="nav-top-link nav-top-not-logged-in">-->
               </li>
-              <li class="header-divider"></li>
+              <li class="header-divider "></li>
               <!-- class="current-dropdown" eklendiğinde sepet preview geliyor
               ilk li elementi nin içindeki ilk ul elementi görünür hale geliyor -->
               <CartPreview />

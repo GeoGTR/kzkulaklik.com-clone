@@ -81,7 +81,7 @@ export default createStore({
     addToCart (context, iCount) {
       var cart = context.state.cart
       var selectedProduct = context.state.selectedProduct
-      var productInCart = cart.filter(listing => listing.id === selectedProduct)
+      var productInCart = cart.filter(a => a.id === selectedProduct)
       console.log(productInCart.length)
       if (productInCart.length === 0) {
         cart.push({ id: selectedProduct, count: iCount })
@@ -110,11 +110,15 @@ export default createStore({
     },
 
     increaseCount (context, id) {
-      context.commit('increaseCount', id)
+      var index = context.state.cart.findIndex(item => item.id === id)
+      context.commit('increaseCount', index)
     },
 
     decreaseCount (context, id) {
-      context.commit('decreaseCount', id)
+      var index = context.state.cart.findIndex(item => item.id === id)
+      if (context.state.cart[index].count > 1) {
+        context.commit('decreaseCount', index)
+      }
     },
 
     filterProducts (context, category) {

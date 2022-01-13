@@ -138,6 +138,7 @@ export default {
                                                                 class="minus button is-form"
                                                                 @click="$store.dispatch('decreaseCount', p.id)"
                                                             />
+                                                            <!---->
                                                             <label
                                                                 class="screen-reader-text"
                                                                 for="quantity_6179764c78096"
