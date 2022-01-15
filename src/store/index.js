@@ -1,17 +1,26 @@
 
 import { createStore } from 'vuex'
 import axios from 'axios'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { getFirestore, collection, doc, Firestore, getDoc, getDocs, setDoc, query, addDoc } from 'firebase/firestore'
+import router from '../router'
 
 export default createStore({
   state: {
-    users: [],
     comments: [],
     descriptions: [],
-    selectedProduct: 0,
+    selectedProduct: 1,
+    user: [],
+    docs: [],
     selectedTab: 'description',
     selectedPage: 'home',
+    registerMail: '',
+    registerPassword: '',
+    loginMail: '',
+    loginPassword: '',
     filteredProducts: [],
     cart: [],
+    userCarts: [],
     products: []
     /* {
         id: 0,
@@ -78,6 +87,71 @@ export default createStore({
     }
   },
   actions: {
+    async getCarts (context) {
+      var db = getFirestore()
+      var querySnapshot = await getDocs(collection(db, 'carts'))
+      var data = []
+      var docs = []
+      querySnapshot.forEach((doc) => {
+        docs.push({ docid: doc.id, uid: doc.data().uid })
+        data.push({ uid: doc.data().uid, cart: doc.data().cart })
+      })
+      context.state.userCarts = data
+      context.state.docs = docs
+    },
+
+    setUserCart (context) {
+      var carts = context.state.userCarts
+      var uid = context.state.user.uid
+      var search = carts.find(c => c.uid === uid)
+
+      if (search !== undefined) {
+        context.state.cart = search.cart
+        console.log(context.state.cart)
+      }
+    },
+
+    async updateUserCart (context) {
+      var cart = context.state.cart
+      var userCarts = context.state.userCarts
+      var uid = context.state.user.uid
+
+      if (userCarts.filter(c => c.uid === uid).length === 0) {
+        userCarts.push({ uid: uid, cart: cart })
+      } else {
+        var cartIndex = userCarts.findIndex(c => c.uid === uid)
+        userCarts[cartIndex].cart = cart
+      }
+      console.log('cart updated')
+      console.log(userCarts)
+      await context.dispatch('updateFirebaseCart')
+    },
+
+    async updateFirebaseCart (context) {
+      var uid = context.state.user.uid
+      var document = context.state.docs.find(d => d.uid === uid)
+      var cart = context.state.cart
+      var db = getFirestore()
+
+      try {
+        if (document === undefined) {
+          await addDoc(collection(db, 'carts'), {
+            uid: uid,
+            cart: cart
+          })
+          await context.dispatch('getCarts')
+        } else {
+          await setDoc(doc(db, 'carts', document.docid), {
+            uid: uid,
+            cart: cart
+          })
+        }
+        console.log('güncellendi')
+      } catch (e) {
+        console.error('hata: ' + e)
+      }
+    },
+
     addToCart (context, iCount) {
       var cart = context.state.cart
       var selectedProduct = context.state.selectedProduct
@@ -89,12 +163,14 @@ export default createStore({
         var index = cart.findIndex(listing => listing.id === selectedProduct)
         cart[index].count += iCount
       }
+      context.dispatch('updateUserCart')
     },
 
     removeFromCart (context, id) {
       var cart = context.state.cart
       var filteredCart = cart.filter(c => c.id !== id)
       context.commit('setCart', filteredCart)
+      context.dispatch('updateUserCart')
     },
 
     selectProduct (context, id) {
@@ -112,12 +188,14 @@ export default createStore({
     increaseCount (context, id) {
       var index = context.state.cart.findIndex(item => item.id === id)
       context.commit('increaseCount', index)
+      context.dispatch('updateUserCart')
     },
 
     decreaseCount (context, id) {
       var index = context.state.cart.findIndex(item => item.id === id)
       if (context.state.cart[index].count > 1) {
         context.commit('decreaseCount', index)
+        context.dispatch('updateUserCart')
       }
     },
 
@@ -138,6 +216,42 @@ export default createStore({
       context.commit('setProducts', products.data)
       context.commit('setComments', comments.data)
       context.commit('setDescriptions', descriptions.data)
+    },
+
+    register (context) {
+      const auth = getAuth()
+      createUserWithEmailAndPassword(auth, context.state.registerMail, context.state.registerPassword)
+        .then((userCredential) => {
+          // Giriş yapıldı
+          const user = userCredential.user
+          context.dispatch('onLogin', user)
+        })
+        .catch((error) => {
+          const errorMessage = error.message
+          alert(errorMessage)
+        })
+    },
+
+    login (context) {
+      const auth = getAuth()
+      signInWithEmailAndPassword(auth, context.state.loginMail, context.state.loginPassword)
+        .then((userCredential) => {
+          // Giriş Yapıldı
+          const user = userCredential.user
+          context.dispatch('onLogin', user)
+        })
+        .catch((error) => {
+          const errorMessage = error.message
+          alert(errorMessage)
+        })
+    },
+
+    onLogin (context, user) {
+      context.state.cart = []
+      context.state.user = user
+      context.dispatch('setUserCart')
+      context.dispatch('selectPage', 'home')
+      router.push('/')
     }
   },
   getters: {

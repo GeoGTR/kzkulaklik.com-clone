@@ -16,13 +16,12 @@ export default {
                 class="col2-set row row-divided row-large"
                 id="customer_login"
               >
+
                 <div class="col-1 large-6 col pb-0">
                   <div class="account-login-inner">
                     <h3 class="uppercase">Giriş Yap</h3>
-
-                    <form
-                      class="woocommerce-form woocommerce-form-login login"
-                      method="post"
+<!--Giriş Yap-->
+                    <form @submit.prevent="$store.dispatch('login')" class="woocommerce-form woocommerce-form-login login"
                     >
                       <p
                         class="
@@ -34,16 +33,7 @@ export default {
                           Kullanıcı adı veya e-posta adresi&nbsp;
                           <span class="required">*</span>
                         </label>
-                        <input
-                          type="text"
-                          class="
-                            woocommerce-Input woocommerce-Input--text
-                            input-text
-                          "
-                          name="username"
-                          id="username"
-                          autocomplete="username"
-                          value
+                        <input type="text" v-model="$store.state.loginMail" class="woocommerce-Input woocommerce-Input--text input-text"
                         />
                       </p>
                       <p
@@ -57,16 +47,7 @@ export default {
                           <span class="required">*</span>
                         </label>
                         <span class="password-input">
-                          <input
-                            class="
-                              woocommerce-Input woocommerce-Input--text
-                              input-text
-                            "
-                            type="password"
-                            name="password"
-                            id="password"
-                            autocomplete="current-password"
-                          />
+                          <input type="password" v-model="$store.state.loginPassword" class="woocommerce-Input woocommerce-Input--text input-text"/>
                           <span class="show-password-input"></span>
                         </span>
                       </p>
@@ -102,16 +83,7 @@ export default {
                           name="_wp_http_referer"
                           value="/hesabim/"
                         />
-                        <button
-                          type="submit"
-                          class="
-                            woocommerce-button
-                            button
-                            woocommerce-form-login__submit
-                          "
-                          name="login"
-                          value="Giriş Yap"
-                        >
+                        <button type="submit" class="woocommerce-button button woocommerce-form-login__submit" value="Giriş Yap">
                           Giriş Yap
                         </button>
                       </p>
@@ -128,14 +100,8 @@ export default {
                 <div class="col-2 large-6 col pb-0">
                   <div class="account-register-inner">
                     <h3 class="uppercase">Üye Ol</h3>
-
-                    <form
-                      method="post"
-                      class="
-                        woocommerce-form woocommerce-form-register
-                        register
-                      "
-                    >
+<!--Üye ol-->
+                    <form @submit.prevent="$store.dispatch('register')" class="woocommerce-form woocommerce-form-register register">
                       <p
                         class="
                           woocommerce-form-row woocommerce-form-row--wide
@@ -146,17 +112,7 @@ export default {
                           E-posta adresi&nbsp;
                           <span class="required">*</span>
                         </label>
-                        <input
-                          type="email"
-                          class="
-                            woocommerce-Input woocommerce-Input--text
-                            input-text
-                          "
-                          name="email"
-                          id="reg_email"
-                          autocomplete="email"
-                          value
-                        />
+                        <input type="email" v-model="$store.state.registerMail" class="woocommerce-Input woocommerce-Input--text input-text"/>
                       </p>
 
                       <p
@@ -170,16 +126,7 @@ export default {
                           <span class="required">*</span>
                         </label>
                         <span class="password-input">
-                          <input
-                            type="password"
-                            class="
-                              woocommerce-Input woocommerce-Input--text
-                              input-text
-                            "
-                            name="password"
-                            id="reg_password"
-                            autocomplete="new-password"
-                          />
+                          <input type="password" v-model="$store.state.registerPassword" class="woocommerce-Input woocommerce-Input--text input-text"/>
                           <span class="show-password-input"></span>
                         </span>
                       </p>
@@ -202,16 +149,7 @@ export default {
                           name="_wp_http_referer"
                           value="/hesabim/"
                         />
-                        <button
-                          type="submit"
-                          class="
-                            woocommerce-Button woocommerce-button
-                            button
-                            woocommerce-form-register__submit
-                          "
-                          name="register"
-                          value="Üye Ol"
-                        >
+                        <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit" value="Üye Ol">
                           Üye Ol
                         </button>
                       </p>
