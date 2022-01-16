@@ -210,9 +210,76 @@ export default createStore({
     },
 
     async fetchData (context) {
-      var products = await axios.get('http://localhost:3000/products')
-      var comments = await axios.get('http://localhost:3000/comments')
-      var descriptions = await axios.get('http://localhost:3000/descriptions')
+      var products// = await axios.get('http://localhost:3000/products')
+      var comments//= await axios.get('http://localhost:3000/comments')
+      var descriptions// = await axios.get('http://localhost:3000/descriptions')
+
+      var productsResult = await axios({
+        method: "POST",
+        url: "http://localhost:4040/graphql",
+        data: {
+          query: `
+            {
+              products {
+                id,
+                imgSrc,
+                altimgSrc,
+                productName,
+                description,
+                category,
+                stars,
+                originalPrice,
+                discountedPrice
+              }
+            }
+          `
+        }
+      });
+
+      this.products = productsResult.data.data.products
+
+      var commentsResult = await axios({
+        method: "POST",
+        url: "http://localhost:4040/graphql",
+        data: {
+          query: `
+            {
+              comments {
+                id,
+                username,
+                commnetDate,
+                comment,
+                star
+              }
+            }
+          `
+        }
+      });
+
+      this.comments = commentsResult.data.data.comments
+
+      var descriptionsResult = await axios({
+        method: "POST",
+        url: "http://localhost:4040/graphql",
+        data: {
+          query: `
+            {
+              descriptions {
+                id,
+                descriptionTitle,
+                descriptionText,
+                descriptionList,
+                boxIncluded,
+                specs
+              }
+            }
+          `
+        }
+      });
+
+      this.descriptions = descriptionsResult.data.data.descriptions
+      console.log(descriptions)
+
       context.commit('setProducts', products.data)
       context.commit('setComments', comments.data)
       context.commit('setDescriptions', descriptions.data)
