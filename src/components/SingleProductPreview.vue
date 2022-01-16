@@ -8,6 +8,12 @@ export default {
     productName: String,
     originalPrice: String,
     discountedPrice: String
+  },
+  data () {
+    return {
+      url: '/product/' + this.id
+      // url: '/product'
+    }
   }
 }
 </script>
@@ -18,8 +24,8 @@ export default {
         <div class="product-small box">
             <div class="box-image">
                 <div class="image-fade_in_back">
-                    <!--<a href="./product">-->
-                    <router-link to="/product" @click="$store.dispatch('selectProduct', id)">
+                    <!--<a href="./product"> @click="$store.dispatch('selectProduct', id)"-->
+                    <router-link :to="url">
                         <!--ana resim-->
                         <img
                             width="247"
@@ -56,7 +62,7 @@ export default {
                                 href="https://www.kzkulaklik.com/urun/kz-zsn-1ba1dd-hibrit-kulaklik/"
                                 class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
                         >KZ ZSN Pro 1BA+1DD Hibrit Kulaklık</a>-->
-                        <router-link to="/product">{{ productName }}</router-link>
+                        <router-link :to="url">{{ productName }}</router-link>
                     </p>
                 </div>
                 <div class="price-wrapper">

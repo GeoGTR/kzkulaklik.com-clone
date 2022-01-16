@@ -14,12 +14,13 @@ export default {
     Reviews,
     RelatedProducts
   },
-  data: function () {
+  data () {
     return {
       number: 1,
       styleP: 'width: ' + this.$store.getters.selectedProduct.stars * 20 + '%'
     }
   }
+
 }
 </script>
 

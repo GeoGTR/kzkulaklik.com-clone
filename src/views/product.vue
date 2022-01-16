@@ -5,6 +5,24 @@ export default {
   name: 'ProductPage',
   components: {
     ProductView
+  },
+  mounted () {
+    console.log('bruh: ' + this.id)
+    this.$store.dispatch('selectProduct', this.id)
+  },
+  watch: {
+    $route (to, from) {
+      this.id = Number(this.$route.params.id)
+      if (!isNaN(this.id)) {
+        this.$store.dispatch('selectProduct', this.id)
+      }
+      console.log('ben o tanıdığın sayfa değilim: ' + this.id)
+    }
+  },
+  data () {
+    return {
+      id: Number(this.$route.params.id)
+    }
   }
 }
 </script>
