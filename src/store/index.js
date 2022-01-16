@@ -216,12 +216,72 @@ export default createStore({
     },
 
     async fetchData (context) {
-      var products = await axios.get('http://localhost:3000/products')
-      var comments = await axios.get('http://localhost:3000/comments')
-      var descriptions = await axios.get('http://localhost:3000/descriptions')
-      context.commit('setProducts', products.data)
-      context.commit('setComments', comments.data)
-      context.commit('setDescriptions', descriptions.data)
+      // var products = await axios.get('http://localhost:3000/products')
+      // var comments = await axios.get('http://localhost:3000/comments')
+      // var descriptions = await axios.get('http://localhost:3000/descriptions')
+
+      var products = await axios({
+        method: 'POST',
+        url: 'http://localhost:5050/graphql',
+        data: {
+          query: `
+            {
+              products {
+                id,
+                imgSrc,
+                altimgSrc,
+                productName,
+                description,
+                category,
+                stars,
+                originalPrice,
+                discountedPrice
+              }
+            }
+          `
+        }
+      }).then(data => { return data.data.data.products })
+
+      var comments = await axios({
+        method: 'POST',
+        url: 'http://localhost:5050/graphql',
+        data: {
+          query: `
+             {
+               comments {
+                 id,
+                 username,
+                 commnetDate,
+                 comment,
+                 star
+               }
+             }
+           `
+        }
+      }).then(data => { return data.data.data.comments })
+
+      var descriptions = await axios({
+        method: 'POST',
+        url: 'http://localhost:5050/graphql',
+        data: {
+          query: `
+             {
+               descriptions {
+                 id,
+                 descriptionTitle,
+                 descriptionText,
+                 descriptionList,
+                 boxIncluded,
+                 specs
+               }
+             }
+           `
+        }
+      }).then(data => { return data.data.data.descriptions })
+
+      context.commit('setProducts', products)
+      context.commit('setComments', comments)
+      context.commit('setDescriptions', descriptions)
     },
 
     register (context) {
