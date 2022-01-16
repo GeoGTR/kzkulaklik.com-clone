@@ -1,14 +1,17 @@
-const express = require('express');
-const { graphqlHTTP } = require('express-graphql');
-const myGraphQLSchema = require('./schema');
+const express = require('express')
+const { graphqlHTTP } = require('express-graphql')
+const myGraphQLSchema = require('./schema')
+const Cors = require('cors')
 
-const app = express();
+const app = express()
+
+app.use(Cors())
 
 app.use('/graphql', graphqlHTTP({
   schema: myGraphQLSchema,
   graphiql: true
 }))
 
-app.listen(4040, () => {
-  console.log('server 4040. portta çalışıyor');
+app.listen(5050, () => {
+  console.log('server 5050. portta çalışıyor')
 })

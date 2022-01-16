@@ -210,13 +210,13 @@ export default createStore({
     },
 
     async fetchData (context) {
-      var products// = await axios.get('http://localhost:3000/products')
-      var comments//= await axios.get('http://localhost:3000/comments')
-      var descriptions// = await axios.get('http://localhost:3000/descriptions')
+      var products // = await axios.get('http://localhost:3000/products')
+      var comments //= await axios.get('http://localhost:3000/comments')
+      var descriptions // = await axios.get('http://localhost:3000/descriptions')
 
-      var productsResult = await axios({
-        method: "POST",
-        url: "http://localhost:4040/graphql",
+      this.products  = await axios({
+        method: 'POST',
+        url: 'http://localhost:5050/graphql',
         data: {
           query: `
             {
@@ -234,55 +234,48 @@ export default createStore({
             }
           `
         }
-      });
+      }).then(data => { return data.data })
 
-      this.products = productsResult.data.data.products
-
-      var commentsResult = await axios({
-        method: "POST",
-        url: "http://localhost:4040/graphql",
-        data: {
-          query: `
-            {
-              comments {
-                id,
-                username,
-                commnetDate,
-                comment,
-                star
-              }
-            }
-          `
-        }
-      });
-
-      this.comments = commentsResult.data.data.comments
+       this.comments = await axios({
+         method: 'POST',
+         url: 'http://localhost:5050/graphql',
+         data: {
+           query: `
+             {
+               comments {
+                 id,
+                 username,
+                 commnetDate,
+                 comment,
+                 star
+               }
+             }
+           `
+         }
+       }).then(data => { return data.data })
 
       var descriptionsResult = await axios({
-        method: "POST",
-        url: "http://localhost:4040/graphql",
-        data: {
-          query: `
-            {
-              descriptions {
-                id,
-                descriptionTitle,
-                descriptionText,
-                descriptionList,
-                boxIncluded,
-                specs
-              }
-            }
-          `
-        }
-      });
+         method: 'POST',
+         url: 'http://localhost:5050/graphql',
+         data: {
+           query: `
+             {
+               descriptions {
+                 id,
+                 descriptionTitle,
+                 descriptionText,
+                 descriptionList,
+                 boxIncluded,
+                 specs
+               }
+             }
+           `
+         }
+       }).then(data => { return data.data })
 
-      this.descriptions = descriptionsResult.data.data.descriptions
-      console.log(descriptions)
-
-      context.commit('setProducts', products.data)
-      context.commit('setComments', comments.data)
-      context.commit('setDescriptions', descriptions.data)
+      context.commit('setProducts', this.products.data.products)
+      context.commit('setComments', this.comments.data.comments)
+      context.commit('setDescriptions', this.descriptions.data.descriptions)
     },
 
     register (context) {
