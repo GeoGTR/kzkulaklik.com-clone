@@ -2,7 +2,7 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
-import { getFirestore, collection, doc, Firestore, getDoc, getDocs, setDoc, query, addDoc } from 'firebase/firestore'
+import { getFirestore, collection, doc, getDocs, setDoc, addDoc } from 'firebase/firestore'
 import router from '../router'
 
 export default createStore({
@@ -10,7 +10,7 @@ export default createStore({
     comments: [],
     descriptions: [],
     selectedProduct: 1,
-    user: [],
+    user: null,
     docs: [],
     selectedTab: 'description',
     selectedPage: 'home',
@@ -112,6 +112,9 @@ export default createStore({
     },
 
     async updateUserCart (context) {
+      if (context.state.user === null) {
+        return
+      }
       var cart = context.state.cart
       var userCarts = context.state.userCarts
       var uid = context.state.user.uid
@@ -128,6 +131,9 @@ export default createStore({
     },
 
     async updateFirebaseCart (context) {
+      if (context.state.user === null) {
+        return
+      }
       var uid = context.state.user.uid
       var document = context.state.docs.find(d => d.uid === uid)
       var cart = context.state.cart
@@ -288,6 +294,25 @@ export default createStore({
 
     currentDescription: state => {
       return state.descriptions.find(d => d.id === state.selectedProduct)
+    },
+
+    productsInCart: state => {
+      var products = []
+      var cart = state.cart
+      cart.forEach(listing => {
+        var id = listing.id
+        products.push({ product: state.products.find(p => p.id === id), count: listing.count })
+      })
+      return products
+    },
+
+    cartEmpty: state => {
+      var cart = state.cart
+      if (cart.length === 0) {
+        return true
+      } else {
+        return false
+      }
     }
   },
   modules: {

@@ -361,7 +361,7 @@ export default {
                             </li>
                             <li class="prod-dropdown has-dropdown">
                                 <a
-                                    href="https://www.kzkulaklik.com/urun/kz-as10-5ba-5-denge-armatur-kulaklik/"
+                                    href="#"
                                     rel="next"
                                     class="button icon is-outline circle"
                                 >
@@ -370,7 +370,7 @@ export default {
                                 <div class="nav-dropdown">
                                     <a
                                         title="KZ AS10 5BA 5 Denge Armatür Kulaklık"
-                                        href="https://www.kzkulaklik.com/urun/kz-as10-5ba-5-denge-armatur-kulaklik/"
+                                        href="#"
                                     >
                                         <img
                                             width="100"
@@ -479,7 +479,7 @@ export default {
                                 <ul class="next-prev-thumbs is-small nav-right text-right">
                                     <li class="prod-dropdown has-dropdown">
                                         <a
-                                            href="https://www.kzkulaklik.com/urun/kz-zst-pro-1ba1dd-hibrit-kulaklik/"
+                                            href="#"
                                             rel="next"
                                             class="button icon is-outline circle"
                                         >
@@ -488,7 +488,7 @@ export default {
                                         <div class="nav-dropdown">
                                             <a
                                                 title="KZ ZST Pro 1BA+1DD Hibrit Kulaklık"
-                                                href="https://www.kzkulaklik.com/urun/kz-zst-pro-1ba1dd-hibrit-kulaklik/"
+                                                href="#"
                                             >
                                                 <img
                                                     width="100"
@@ -506,7 +506,7 @@ export default {
                                     </li>
                                     <li class="prod-dropdown has-dropdown">
                                         <a
-                                            href="https://www.kzkulaklik.com/urun/kz-as10-5ba-5-denge-armatur-kulaklik/"
+                                            href="#"
                                             rel="next"
                                             class="button icon is-outline circle"
                                         >
@@ -515,7 +515,7 @@ export default {
                                         <div class="nav-dropdown">
                                             <a
                                                 title="KZ AS10 5BA 5 Denge Armatür Kulaklık"
-                                                href="https://www.kzkulaklik.com/urun/kz-as10-5ba-5-denge-armatur-kulaklik/"
+                                                href="#"
                                             >
                                                 <img
                                                     width="100"

@@ -17,7 +17,7 @@ export default {
                                 >
                                     <i class="icon-checkmark"></i>
                                     <a
-                                        href="https://www.kzkulaklik.com/urun/kz-zst-pro-1ba1dd-hibrit-kulaklik/"
+                                        href="#"
                                         tabindex="1"
                                         class="button wc-forward"
                                     >Alışverişe devam et</a> “KZ ZST Pro 1BA+1DD Hibrit Kulaklık” sepetinize eklendi.
@@ -28,7 +28,6 @@ export default {
                             <div class="col large-7 pb-0 cart-auto-refresh">
                                 <form
                                     class="woocommerce-cart-form"
-                                    action="https://www.kzkulaklik.com/sepet/"
                                     method="post"
                                 >
                                     <div class="cart-wrapper sm-touch-scroll">
@@ -60,7 +59,7 @@ export default {
                                                     </td>
 
                                                     <td class="product-thumbnail">
-                                                        <router-link to="/product">
+                                                        <router-link :to="'/product/' + p.id">
                                                             <img
                                                                 width="247"
                                                                 height="247"
@@ -89,7 +88,7 @@ export default {
                                                     </td>
 
                                                     <td class="product-name" data-title="Ürün">
-                                                        <router-link to="/product">{{$store.getters.returnProductName(p.id)}}</router-link>
+                                                        <router-link :to="'/product/' + p.id">{{$store.getters.returnProductName(p.id)}}</router-link>
                                                         <!--
                                                         <a
                                                             href="https://www.kzkulaklik.com/urun/kz-zsn-1ba1dd-hibrit-kulaklik/?attribute_renk=Siyah"
@@ -313,10 +312,10 @@ export default {
                                         </table>
 
                                         <div class="wc-proceed-to-checkout">
-                                            <a
-                                                href="https://www.kzkulaklik.com/odeme/"
+                                            <router-link
+                                                to="/paymentAndDelivery"
                                                 class="checkout-button button alt wc-forward"
-                                            >Satın AL</a>
+                                            >Satın AL</router-link>
                                         </div>
                                     </div>
                                     <div class="cart-sidebar-content relative"></div>

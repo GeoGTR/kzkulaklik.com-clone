@@ -89,7 +89,7 @@ export default {
                       </p>
                       <p class="woocommerce-LostPassword lost_password">
                         <a
-                          href="https://www.kzkulaklik.com/hesabim/lost-password/"
+                          href="#"
                           >Parolanızı mı unuttunuz?</a
                         >
                       </p>

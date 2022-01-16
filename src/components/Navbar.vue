@@ -82,7 +82,6 @@ export default {
                           role="search"
                           method="get"
                           class="searchform"
-                          action="https://www.kzkulaklik.com/"
                         >
                           <div class="flex-row relative">
                             <div class="flex-col flex-grow">
