@@ -210,11 +210,11 @@ export default createStore({
     },
 
     async fetchData (context) {
-      var products // = await axios.get('http://localhost:3000/products')
-      var comments //= await axios.get('http://localhost:3000/comments')
-      var descriptions // = await axios.get('http://localhost:3000/descriptions')
+      // var products = await axios.get('http://localhost:3000/products')
+      // var comments = await axios.get('http://localhost:3000/comments')
+      // var descriptions = await axios.get('http://localhost:3000/descriptions')
 
-      this.products  = await axios({
+      var products = await axios({
         method: 'POST',
         url: 'http://localhost:5050/graphql',
         data: {
@@ -234,13 +234,13 @@ export default createStore({
             }
           `
         }
-      }).then(data => { return data.data })
+      }).then(data => { return data.data.data.products })
 
-       this.comments = await axios({
-         method: 'POST',
-         url: 'http://localhost:5050/graphql',
-         data: {
-           query: `
+      var comments = await axios({
+        method: 'POST',
+        url: 'http://localhost:5050/graphql',
+        data: {
+          query: `
              {
                comments {
                  id,
@@ -251,14 +251,14 @@ export default createStore({
                }
              }
            `
-         }
-       }).then(data => { return data.data })
+        }
+      }).then(data => { return data.data.data.comments })
 
-      var descriptionsResult = await axios({
-         method: 'POST',
-         url: 'http://localhost:5050/graphql',
-         data: {
-           query: `
+      var descriptions = await axios({
+        method: 'POST',
+        url: 'http://localhost:5050/graphql',
+        data: {
+          query: `
              {
                descriptions {
                  id,
@@ -270,12 +270,12 @@ export default createStore({
                }
              }
            `
-         }
-       }).then(data => { return data.data })
+        }
+      }).then(data => { return data.data.data.descriptions })
 
-      context.commit('setProducts', this.products.data.products)
-      context.commit('setComments', this.comments.data.comments)
-      context.commit('setDescriptions', this.descriptions.data.descriptions)
+      context.commit('setProducts', products)
+      context.commit('setComments', comments)
+      context.commit('setDescriptions', descriptions)
     },
 
     register (context) {
