@@ -50,7 +50,7 @@ export default {
                                                     v-for="p in $store.state.cart" :key="p.id"
                                                 >
                                                     <td class="product-remove">
-                                                        <router-link to="/cart" @click="$store.dispatch('removeFromCart', p.id)"
+                                                        <router-link id="removeProduct" to="/cart" @click="$store.dispatch('removeFromCart', p.id)"
                                                             class="remove"
                                                             aria-label="Bu ürünü çıkar"
                                                             data-product_id="160"

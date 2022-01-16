@@ -22,7 +22,7 @@ export default {
 <template>
     <!-- current-dropdown eklendiğinde sepet preview geliyor
     ilk li elementi nin içindeki ilk ul elementi görünür hale geliyor-->
-    <li :class="previewClass" @mouseenter="previewHover = 'current-dropdown'" @mouseleave="previewHover = ''">
+    <li id="preview" :class="previewClass" @mouseenter="previewHover = 'current-dropdown'" @mouseleave="previewHover = ''">
         <router-link to="/cart" title="Sepet" class="header-cart-link is-small" @click="$store.dispatch('selectPage', '')">
             <i class="icon-shopping-basket" data-icon-label="0"></i>
         </router-link>

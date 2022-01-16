@@ -304,7 +304,7 @@ export default {
                             >KZ Kulaklık</router-link>
                         </nav>
                         <!---->
-                        <h1
+                        <h1 id = "productName"
                             class="product-title product_title entry-title"
                         >{{$store.getters.selectedProduct.productName}}</h1>
                         <ul class="next-prev-thumbs is-small show-for-medium">
@@ -455,7 +455,7 @@ export default {
                                         />
                                         <input type="button" value="+" class="plus button is-form" @click="number++"/>
                                     </div>
-                                    <button
+                                    <button id="addToCart"
                                         @click="$store.dispatch('addToCart', number)"
                                         class="button alt disabled"
                                     >Sepete Ekle</button>
