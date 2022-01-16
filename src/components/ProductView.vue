@@ -395,7 +395,7 @@ export default {
                                     aria-label="5 üzerinden 4.89 oy aldı"
                                 >
                                 <!---->
-                                    <span :style = "styleP">
+                                    <span :style = "'width: ' + $store.getters.selectedProduct.stars * 20 + '%'">
                                         <span class="rating">75</span> müşteri puanına dayanarak 5 üzerinden
                                         <strong
                                             class="rating"

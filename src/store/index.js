@@ -2,7 +2,7 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
-import { getFirestore, collection, doc, getDocs, setDoc, addDoc } from 'firebase/firestore'
+import { getFirestore, collection, doc, getDocs, setDoc, addDoc, deleteDoc } from 'firebase/firestore'
 import router from '../router'
 
 export default createStore({
@@ -10,6 +10,7 @@ export default createStore({
     comments: [],
     descriptions: [],
     selectedProduct: 1,
+    userMail: null,
     user: null,
     docs: [],
     selectedTab: 'description',
@@ -134,10 +135,15 @@ export default createStore({
       if (context.state.user === null) {
         return
       }
+      var cart = context.state.cart
       var uid = context.state.user.uid
       var document = context.state.docs.find(d => d.uid === uid)
-      var cart = context.state.cart
       var db = getFirestore()
+
+      if (cart.length === 0) {
+        await deleteDoc(doc(db, 'carts', document.docid))
+        return
+      }
 
       try {
         if (document === undefined) {
@@ -162,7 +168,6 @@ export default createStore({
       var cart = context.state.cart
       var selectedProduct = context.state.selectedProduct
       var productInCart = cart.filter(a => a.id === selectedProduct)
-      console.log(productInCart.length)
       if (productInCart.length === 0) {
         cart.push({ id: selectedProduct, count: iCount })
       } else {
@@ -290,6 +295,7 @@ export default createStore({
         .then((userCredential) => {
           // Giriş yapıldı
           const user = userCredential.user
+          context.state.userMail = context.state.registerMail
           context.dispatch('onLogin', user)
         })
         .catch((error) => {
@@ -304,6 +310,7 @@ export default createStore({
         .then((userCredential) => {
           // Giriş Yapıldı
           const user = userCredential.user
+          context.state.userMail = context.state.loginMail
           context.dispatch('onLogin', user)
         })
         .catch((error) => {

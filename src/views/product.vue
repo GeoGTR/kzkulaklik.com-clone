@@ -7,7 +7,6 @@ export default {
     ProductView
   },
   mounted () {
-    console.log('bruh: ' + this.id)
     this.$store.dispatch('selectProduct', this.id)
   },
   watch: {
@@ -16,7 +15,6 @@ export default {
       if (!isNaN(this.id)) {
         this.$store.dispatch('selectProduct', this.id)
       }
-      console.log('ben o tanıdığın sayfa değilim: ' + this.id)
     }
   },
   data () {

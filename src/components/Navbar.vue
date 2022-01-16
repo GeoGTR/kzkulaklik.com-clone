@@ -203,7 +203,8 @@ export default {
               </li>
               <li class="account-item has-icon" :class="[$store.state.selectedPage == 'login' ? 'active' : '']">
                 <router-link to="/login" class="nav-top-link" @click="$store.dispatch('selectPage','login')">
-                  <span>Giriş Yap</span>
+                  <span v-if="$store.state.userMail === null">Giriş Yap</span>
+                  <span v-else>{{$store.state.userMail}}</span>
                 </router-link>
                 <!--<a href="./loginPage" class="nav-top-link nav-top-not-logged-in">-->
               </li>
