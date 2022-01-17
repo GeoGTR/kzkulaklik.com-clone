@@ -17,6 +17,7 @@ npm add express express-graphql
 npm install -g nodemon
 npm install --save graphql
 npm install cors
+npm install jest
 ```
 
 
