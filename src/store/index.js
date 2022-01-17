@@ -102,13 +102,15 @@ export default createStore({
     },
 
     setUserCart (context) {
+      if (context.state.user === null) {
+        return
+      }
       var carts = context.state.userCarts
       var uid = context.state.user.uid
       var search = carts.find(c => c.uid === uid)
 
       if (search !== undefined) {
         context.state.cart = search.cart
-        console.log(context.state.cart)
       }
     },
 
@@ -126,8 +128,6 @@ export default createStore({
         var cartIndex = userCarts.findIndex(c => c.uid === uid)
         userCarts[cartIndex].cart = cart
       }
-      console.log('cart updated')
-      console.log(userCarts)
       await context.dispatch('updateFirebaseCart')
     },
 
@@ -151,14 +151,13 @@ export default createStore({
             uid: uid,
             cart: cart
           })
-          await context.dispatch('getCarts')
         } else {
           await setDoc(doc(db, 'carts', document.docid), {
             uid: uid,
             cart: cart
           })
         }
-        console.log('güncellendi')
+        await context.dispatch('getCarts')
       } catch (e) {
         console.error('hata: ' + e)
       }
@@ -329,7 +328,7 @@ export default createStore({
   },
   getters: {
     listingTotal: (state) => (id) => {
-      if (id < state.cart.length) {
+      if (state.cart.find(listing => listing.id === id) !== undefined ) {
         // return state.cart.filter(c => c.id === id)[0].count * state.products.filter(p => p.id === id)[0].discountedPrice
         return state.cart.find(c => c.id === id).count * state.products.find(p => p.id === id).discountedPrice
       }
